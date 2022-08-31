@@ -6,7 +6,7 @@
 
 # Zoning Ordinateur
 
-![alt text](./public/img/Zoning/accueil.png)
+![alt text](./public/img/Zoning/accueil.png)(./public/img/Zoning/accueil_phones.png)
 ![alt text](./public/img/Zoning/recherche_saison.png)
 ![alt text](./public/img/Zoning/recette.png)
 ![alt text](./public/img/Zoning/formulaire_ingredient.png)
