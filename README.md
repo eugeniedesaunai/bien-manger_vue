@@ -4,7 +4,7 @@
 # Use Case
 ![alt text](./public/img/Use-Case%20_Bien-Manger-Vue.png)
 
-# Zoning Ordinateur
+# Zoning
 
 ![alt text](./public/img/Zoning/accueil.png)
 ![alt text](./public/img/Zoning/accueil_phone.png)
