@@ -2,6 +2,11 @@
 
 # Charte Graphique 
 ![alt text](./public/img/colors.png)
+#A9BF99  
+#131E28  
+#E0F2C4  
+#BF9E80  
+#D9D3CC  
  
 ## Use Case
 ![alt text](./public/img/Use-Case_Bien-Manger-Vue.png)

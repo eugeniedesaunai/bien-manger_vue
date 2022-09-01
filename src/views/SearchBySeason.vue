@@ -1,5 +1,6 @@
 <template>
   <div>
+        <NavBar :isHomePage="false"></NavBar>
         <SeasonSelection>
         </SeasonSelection>
         <IngredientCarousel>
@@ -11,12 +12,14 @@
 // @ is an alias to /src
 import SeasonSelection from '@/components/SearchBySeason/SeasonSelection.vue'
 import IngredientCarousel from '@/components/SearchBySeason/IngredientCarousel.vue'
+import NavBar from '@/components/NavBar.vue'
 
 export default {
   name: 'SearchBySeason',
   components: {
     SeasonSelection,
-    IngredientCarousel
+    IngredientCarousel,
+    NavBar
   }
 }
 </script>
