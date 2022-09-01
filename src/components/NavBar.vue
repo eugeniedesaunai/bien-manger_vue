@@ -49,4 +49,15 @@ export default {
   justify-content: space-around;
   float: none !important;
 }
+
+.sidenav {
+  width: 50vw;
+  height: 15vh;
+  background-color: rgba(224, 242, 196, 0.9);
+  border-radius: 0rem 0rem 3rem 0rem;
+}
+
+nav {
+  z-index: 1;
+}
 </style>
