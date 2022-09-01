@@ -35,7 +35,7 @@ export default {
 }
 
 .buttonSaison {
-    top: 68%;
+    top: 78%;
     left: 20%;
     margin: 0;
     border-radius: 1rem;
@@ -57,7 +57,7 @@ export default {
     }
 }
 
-@media(min-width: 768px) {
+@media(min-width: 1280px) {
     .textBanner {
         width: 30%;
         top: 25%;
@@ -66,7 +66,7 @@ export default {
 
     .buttonSaison {
         width: 25vw;
-        top: 58%;
+        top: 65%;
         left: 68%;
     }
 }
