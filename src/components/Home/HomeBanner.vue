@@ -1,13 +1,19 @@
 <template lang="">
-    <div>
-        
-    </div>
+    <div class="widthImgBanner"></div>
 </template>
 <script>
-export default {
 
+export default {
+    name: 'HomeBanner',
 }
 </script>
-<style lang="">
-    
+
+<style scoped>
+.widthImgBanner {
+    background-image: url("@/assets/Home/table.jpg");
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
 </style>
