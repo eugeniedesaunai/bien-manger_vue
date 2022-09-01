@@ -23,3 +23,14 @@
 </body>
 
 </html>
+
+<script>
+  let options = {
+    fullWidth: true,
+  };
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var elems = document.querySelectorAll('.carousel');
+    var instances = M.Carousel.init(elems, options);
+  });
+</script>

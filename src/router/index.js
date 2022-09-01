@@ -4,7 +4,7 @@ import RecipeListView from '../views/RecipeListView.vue'
 import RecipeShow from '../views/RecipeShow.vue'
 import RecipeCreate from '../views/RecipeCreate.vue'
 import StepCreate from '../views/StepCreate.vue'
-import SearchBySeason from '../view/SearchBySeason.vue'
+import SearchBySeason from '../views/SearchBySeason.vue'
 
 const routes = [
   {
