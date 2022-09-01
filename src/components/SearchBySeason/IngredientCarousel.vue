@@ -4,6 +4,7 @@
     <a class="carousel-item" href="#two!">tomate</a>
     <a class="carousel-item" href="#three!">beurre</a>
     <a class="carousel-item" href="#four!">chocolat</a>
+
   </div>
 </template>
 
@@ -22,6 +23,8 @@
  .carousel{
      margin:auto;
      width:100%;
+     height:5vh !important;
+     text-align:center;
  }
  .carousel-item{
      left:auto;
