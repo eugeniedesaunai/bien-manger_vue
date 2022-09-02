@@ -24,11 +24,15 @@
 }
 
 .darkGreenColor {
-  color: #A9BF99
+  color: #A9BF99;
 }
 
 .beigeColor {
   color: #BF9E80;
+}
+
+.greyColor {
+  color: #D9D3CC;
 }
 
 /* basic */
@@ -43,5 +47,9 @@
 
 .textUppercase {
   text-transform: uppercase;
+}
+
+.flex {
+  display: flex;
 }
 </style>

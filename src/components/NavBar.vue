@@ -52,9 +52,15 @@ export default {
 
 .sidenav {
   width: 50vw;
-  height: 15vh;
+  height: 30vh;
   background-color: rgba(224, 242, 196, 0.9);
   border-radius: 0rem 0rem 3rem 0rem;
+}
+
+@media(min-width: 768px) {
+  .sidenav {
+    height: 15vh;
+  }
 }
 
 nav {
