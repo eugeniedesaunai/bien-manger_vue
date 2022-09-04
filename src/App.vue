@@ -7,6 +7,7 @@
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
 }
 
 /* color à mettre dans un dossier spécifique */
@@ -39,6 +40,10 @@
 
 .absolute {
   position: absolute;
+}
+
+.relative {
+  position: relative;
 }
 
 .textCenter {

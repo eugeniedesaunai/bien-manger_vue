@@ -1,4 +1,10 @@
 <template>
+  <div class="bouton">
+    <!-- Importez votre icone 
+   <img src="arrow-up-solid.svg" class="icone">
+   -->
+    FLECHE
+  </div>
   <NavBar :isHomePage="true"></NavBar>
   <HomeBanner></HomeBanner>
   <SectionMonthRecipeSearchForm></SectionMonthRecipeSearchForm>
@@ -23,4 +29,36 @@ export default {
 </script >
 
 <style scoped>
+.bouton {
+  height: 50px;
+  width: 50px;
+  background: rgba(224, 242, 196, 0.9);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 2;
+  bottom: 3%;
+  right: 3%;
+  cursor: pointer;
+}
+
+
+@media(min-width: 1280px) {
+  .bouton {
+    height: 100px;
+    width: 100px;
+    background: rgba(224, 242, 196, 0.9);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 2;
+    bottom: 3%;
+    right: 3%;
+    cursor: pointer;
+  }
+}
 </style>

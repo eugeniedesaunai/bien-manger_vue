@@ -1,6 +1,7 @@
 <template lang="">
-    <article class="designGreen absolute"></article>
-    <article class="formSearch absolute">
+    <article class="formSearch">
+        <label for="Nom de la Recette"> Nom de la Recette</label>
+        <input  type="search" name="nom de la recette" id="">
     </article>
 </template>
 <script>
@@ -9,54 +10,39 @@ export default {
 }
 </script>
 <style scoped>
-.designGreen {
-    z-index: 1;
-    top: 59%;
-    left: 14%;
-    background-color: #E0F2C4;
-    width: 50vw;
-    height: 50vw;
-}
-
 .formSearch {
-    z-index: 2;
-    width: 60vw;
-    height: 60vw;
-    top: 62%;
-    left: 18%;
+    margin-bottom: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70vw;
+    height: 80vw;
     background-color: #D9D3CC;
     border: solid rgba(29, 40, 75, 0.7);
 }
 
-@media(min-width: 768px) {
-    .designGreen {
-        top: 35%;
-        left: 50%;
-        width: 30vw;
-        height: 30vw;
-    }
+input[type=search]:not(.browser-default) {
+    border: 1px solid;
+    width: 80%;
+    height: 8%;
+}
 
+input[type=search]:not(.browser-default):focus {
+    border: solid #A9BF99;
+    box-shadow: none;
+}
+
+@media(min-width: 768px) {
     .formSearch {
-        top: 37%;
-        left: 54%;
         width: 35vw;
-        height: 35vw;
+        height: 35vh;
     }
 }
 
 @media(min-width: 1280px) {
-    .designGreen {
-        top: 40%;
-        left: 30%;
-        width: 40vw;
-        height: 40vw;
-    }
-
     .formSearch {
-        top: 45%;
-        left: 35%;
-        width: 40vw;
-        height: 40vw;
+        width: 30vw;
+        height: 30vw;
     }
 }
 </style>

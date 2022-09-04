@@ -19,9 +19,11 @@ export default {
     background-image: url("@/assets/Home/table.jpg");
     width: 100vw;
     height: 90vh;
+    position: relative;
+    background-attachment: fixed;
     background-size: cover;
     background-position: center;
-    position: relative;
+    background-repeat: no-repeat;
 }
 
 .textBanner {

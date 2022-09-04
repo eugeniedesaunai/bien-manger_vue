@@ -1,5 +1,5 @@
 <template lang="">
-<section>
+<section class="mounthAndSearch">
 <MonthRecipe></MonthRecipe>
 <SearchForm></SearchForm>
   </section>
@@ -13,11 +13,13 @@ export default {
 }
 </script>
 <style scoped>
-section {
-    position: relative;
-    z-index: 0;
+.mounthAndSearch {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
     width: 100vw;
-    height: 120vh;
+    height: 370vh;
     background-color: #D9D3CC;
 }
 </style>
