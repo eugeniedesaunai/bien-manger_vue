@@ -1,5 +1,7 @@
 <template>
+    <NavBar :isHomePage="false"></NavBar>
     <div class="container">
+
         <form action="" onsubmit="return false;">
             <InputText @selectInput="get_input" content="Nom de la recette : " fname="recipe" />
             <SelectForm @selectOption="get_selected" content="Saison: " fname="season" :options=seasons />
@@ -13,6 +15,7 @@
 import InputText from '@/components/forms/InputForm.vue';
 import Button from '@/components/forms/ButtonForm.vue';
 import SelectForm from '@/components/forms/SelectForm.vue';
+import NavBar from '@/components/NavBar.vue'
 export default {
 
     name: 'RecipeCreate',
@@ -33,6 +36,7 @@ export default {
         InputText,
         Button,
         SelectForm,
+        NavBar
     },
     methods: {
         //Action
