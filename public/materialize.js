@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 let options = {
     fullWidth: true,
+    indicators: true,
+    padding: 100,
 };
 
 document.addEventListener('DOMContentLoaded', function () {

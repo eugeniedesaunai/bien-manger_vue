@@ -4,6 +4,10 @@
 </template>
 
 <style>
+:root {
+  --body-bg: #D9D3CC;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -60,9 +64,9 @@
 }
 
 body {
-        background-color: BF9E80;
-        margin: 0;
-        overflow-x: hidden;
+  background-color: BF9E80;
+  margin: 0;
+  overflow-x: hidden;
 }
 
 .backgroundStatics {
