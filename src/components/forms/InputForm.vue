@@ -1,7 +1,8 @@
 <template>
-    <div>
+    <div class="input-field col s12">
         <label :for=fname>{{ content }}</label>
-        <input v-model="value" @change="SelectInput" type="text" :id=fname :name=fname>
+        <input class="validate" v-model="value" @change="SelectInput" type="text" :id=fname :name=fname required=""
+            aria-required="true">
     </div>
 
 </template>
@@ -20,4 +21,7 @@ export default {
 }
 </script>
 <style>
+input[type="text"]:not(.browser-default) {
+    margin-bottom: 2.5em;
+}
 </style>

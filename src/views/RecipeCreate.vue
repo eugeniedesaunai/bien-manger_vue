@@ -1,11 +1,11 @@
 <template>
     <div class="container">
-        <form action="">
-            <InputText @selectInput="GetInput" content="Nom de la recette : " fname="recipe" />
-            <SelectForm @selectOption="GetSelected" content="Saison: " fname="season" :options=seasons />
-            <InputText @selectInput="GetInput" content="Nom de l'image : " fname="image" />
-            <SelectForm @selectOption="GetSelected" content="Plats: " fname="plats" :options=plats />
-            <Button value="Créer" @someclick="Test"></Button>
+        <form action="" onsubmit="return false;">
+            <InputText @selectInput="get_input" content="Nom de la recette : " fname="recipe" />
+            <SelectForm @selectOption="get_selected" content="Saison: " fname="season" :options=seasons />
+            <InputText @selectInput="get_input" content="Nom de l'image : " fname="image" />
+            <SelectForm @selectOption="get_selected" content="Plats: " fname="meal" :options=meals />
+            <Button value="Créer" @someclick="test" />
         </form>
     </div>
 </template>
@@ -18,13 +18,15 @@ export default {
     name: 'RecipeCreate',
     data() {
         return {
-            newRecipe: { name: '', season: '', image: '', plat: '' },
+            newRecipe: { name: '', season: '', image: '', meal: '' },
+            fields: ['recipe', 'season', 'image', 'meal'],
+            Valid: [],
             seasons: ['test', 'toto'],
-            plats: ['entrée', 'plats'],
+            meals: ['entrée', 'plats'],
             recipe: '',
             image: '',
-            selectedSeason: '',
-            selectedPlat: '',
+            season: '',
+            meal: '',
         }
     },
     components: {
@@ -33,28 +35,33 @@ export default {
         SelectForm,
     },
     methods: {
-        Test() {
-            this.newRecipe.name = this.recipe;
-            this.newRecipe.season = this.selectedSeason;
-            this.newRecipe.plat = this.selectedPlat;
-            this.newRecipe.image = this.image;
-            alert(Object.values(this.newRecipe));
+        //Action
+        test() {
+            this.Valid = [];
+            this.check_values();
+            if (this.Valid.length == this.fields.length) {
+                this.newRecipe.name = this.recipe;
+                this.newRecipe.season = this.season;
+                this.newRecipe.meal = this.meal;
+                this.newRecipe.image = this.image;
+                alert(Object.values(this.newRecipe));
+            }
         },
-        GetSelected(selected) {
+        //Recupération des options selectionnés
+        get_selected(selected) {
             for (let index = 0; index < this.seasons.length; index++) {
                 if (this.seasons[index] == selected) {
-                    this.selectedSeason = selected;
-                    console.log(this.selectedSeason);
+                    this.season = selected;
                 }
             }
-            for (let index = 0; index < this.plats.length; index++) {
-                if (this.plats[index] == selected) {
-                    this.selectedPlat = selected;
-                    console.log(this.selectedPlat);
+            for (let index = 0; index < this.meals.length; index++) {
+                if (this.meals[index] == selected) {
+                    this.meal = selected;
                 }
             }
         },
-        GetInput(value) {
+        //Recupération des valeurs
+        get_input(value) {
             const inputs = document.getElementsByTagName('input');
             for (let index = 0; index < inputs.length; index++) {
                 if (inputs[index].value == value) {
@@ -66,15 +73,41 @@ export default {
                     }
                 }
             }
+        },
+        //Vérification des valeurs
+        check_values() {
+            this.fields.forEach(field_name => {
+                const field = document.getElementById(field_name);
+                if (!this[field_name]) {
+                    field.classList.add('invalid');
+                } else {
+                    field.classList.add('valid');
+                    this.Valid.push(field_name);
+                }
+            })
         }
     }
 }
 </script>
 <style>
+:root {
+    --color-gray: #9e9e9e;
+}
+
 .container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 10em;
+}
+
+.invalid {
+    border-bottom: 1px solid #F44336;
+    box-shadow: 0 1px 0 0 #F44336;
+}
+
+.valid {
+    border-bottom: 1px solid #4CAF50;
+    box-shadow: 0 1px 0 0 #4CAF50;
 }
 </style>
