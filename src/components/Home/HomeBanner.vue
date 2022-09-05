@@ -66,6 +66,10 @@ export default {
         left: 65%;
     }
 
+    .imgBanner {
+        height: 90vh;
+    }
+
     .buttonSaison {
         width: 25vw;
         top: 65%;

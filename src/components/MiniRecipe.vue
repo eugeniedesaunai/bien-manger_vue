@@ -1,6 +1,6 @@
 <template lang="">
             <div class="imgMonth">
-                <p> Be a nyan cat. <input type="button" value="voir la recette"></p>
+                <p> Be a nyan cat.></p>
             </div>
 </template>
 <script>

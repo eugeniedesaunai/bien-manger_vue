@@ -1,5 +1,5 @@
 <template>
-  <div class="bouton">
+  <div class="bouton" id="backToTop">
     <!-- Importez votre icone 
    <img src="arrow-up-solid.svg" class="icone">
    -->
@@ -53,7 +53,6 @@ export default {
   .bouton {
     height: 70px;
     width: 70px;
-    visibility: visible;
   }
 }
 

@@ -5,12 +5,12 @@
      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="left  hide-on-med-and-down flexArround">
         <li ><a class="texteColor" href="/season/search">Saison</a></li>
-        <li><a class="texteColor" href="">Formulaire</a></li>
+        <li><a class="texteColor" href="/recipe/create">Formulaire</a></li>
       </ul>
     </div>
   </nav>
   <ul class="sidenav" id="mobile-demo">
-    <li><a href="">Saison</a></li>
+    <li><a href="/season/search">Saison</a></li>
     <li><a href="">Formulaire</a></li>
   </ul>
 </template>
