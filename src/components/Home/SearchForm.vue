@@ -46,7 +46,6 @@ select {
     background-color: #A9BF99;
     padding-top: 1rem;
     padding-bottom: 3rem;
-    margin-top: 2rem;
     margin-bottom: 6rem;
 }
 
