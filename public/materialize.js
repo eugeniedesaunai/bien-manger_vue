@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
-    var elems = document.querySelectorAll('.sidenav', '.carousel');
+    var elems = document.querySelectorAll('.sidenav');
     M.Sidenav.init(elems, {});
-    var instances = M.Carousel.init(elems, options);
+    var instances = M.Carousel.init(elems);
 });
 
 let options = {
