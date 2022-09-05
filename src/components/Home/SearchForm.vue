@@ -34,15 +34,15 @@ input[type=search]:not(.browser-default):focus {
 
 @media(min-width: 768px) {
     .formSearch {
-        width: 35vw;
-        height: 35vh;
+        width: 70vw;
+        height: 30vh;
     }
 }
 
 @media(min-width: 1280px) {
     .formSearch {
-        width: 30vw;
-        height: 30vw;
+        width: 70vw;
+        height: 35vw;
     }
 }
 </style>
