@@ -1,16 +1,19 @@
 document.addEventListener('DOMContentLoaded', function () {
     var elems = document.querySelectorAll('.sidenav');
     M.Sidenav.init(elems, {});
+    scrollToTopButton();
 });
 
-let bouton = document.querySelector('.bouton');
+function scrollToTopButton() {
+    let bouton = document.querySelector('.bouton');
 
-bouton.addEventListener('click', () => {
+    bouton.addEventListener('click', () => {
 
-    window.scrollTo({
-        top: 0,
-        left: 0,
-        behavior: "smooth"
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "smooth"
+        })
+
     })
-
-})
+}

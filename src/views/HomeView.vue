@@ -3,7 +3,7 @@
     <!-- Importez votre icone 
    <img src="arrow-up-solid.svg" class="icone">
    -->
-    FLECHE
+    <img class="icone" src="@/assets/fleche.png" alt="">
   </div>
   <NavBar :isHomePage="true"></NavBar>
   <HomeBanner></HomeBanner>
@@ -42,23 +42,25 @@ export default {
   bottom: 3%;
   right: 3%;
   cursor: pointer;
+  visibility: hidden;
 }
 
+.icone {
+  width: 50px;
+}
+
+@media(min-width: 768px) {
+  .bouton {
+    height: 80px;
+    width: 80px;
+
+  }
+}
 
 @media(min-width: 1280px) {
   .bouton {
     height: 100px;
     width: 100px;
-    background: rgba(224, 242, 196, 0.9);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    z-index: 2;
-    bottom: 3%;
-    right: 3%;
-    cursor: pointer;
   }
 }
 </style>

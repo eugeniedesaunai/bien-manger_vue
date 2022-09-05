@@ -1,5 +1,5 @@
 <template lang="">
-    <div class="imgBanner "></div>
+    <div class="imgBanner "> </div>
     <p class="textBanner absolute blueColor textCenter">
         Be a nyan cat, feel great about it, be annoying 24/7 poop rainbows in litter box all day love blinks 
         and purr purr purr purr yawn proudly present butt to human. Bird bird bird bird bird bird human why 
@@ -18,7 +18,7 @@ export default {
 .imgBanner {
     background-image: url("@/assets/Home/table.jpg");
     width: 100vw;
-    height: 90vh;
+    height: 100vh;
     position: relative;
     background-attachment: fixed;
     background-size: cover;
