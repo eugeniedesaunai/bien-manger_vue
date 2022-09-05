@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var elems = document.querySelectorAll('.sidenav');
     M.Sidenav.init(elems, {});
     var instances = M.Carousel.init(elems);
+
 });
 
 let options = {
@@ -11,6 +12,7 @@ let options = {
 document.addEventListener('DOMContentLoaded', function () {
     var elems = document.querySelectorAll('.carousel');
     var instances = M.Carousel.init(elems, options);
+    scrollToTopButton();
 });
 
 
@@ -26,3 +28,10 @@ function scrollToTopButton() {
         })
     })
 }
+window.onscroll = function () {
+    if (scrollY >= 200) {
+        document.getElementById('backToTop').style.visibility = "visible";
+    } else {
+        document.getElementById('backToTop').style.visibility = "hidden";
+    }
+};
