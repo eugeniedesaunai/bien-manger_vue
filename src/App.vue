@@ -60,7 +60,7 @@
 }
 
 body {
-        background-color: D9D3CC;
+        background-color: BF9E80;
         margin: 0;
         overflow-x: hidden;
     }

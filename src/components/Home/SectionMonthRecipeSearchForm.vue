@@ -20,7 +20,6 @@ export default {
   align-items: center;
   width: 100vw;
   height: 390vh;
-  background-color: #D9D3CC;
 }
 
 @media(min-width: 768px) {
