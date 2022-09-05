@@ -63,7 +63,6 @@ body {
         background-color: D9D3CC;
         margin: 0;
         overflow-x: hidden;
-        overflow-y: hidden;
     }
 
     .backgroundStatics {
