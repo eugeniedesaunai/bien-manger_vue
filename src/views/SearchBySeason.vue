@@ -1,12 +1,12 @@
 <template>
   <div>
         <NavBar :isHomePage="false"></NavBar>
-        <SeasonSelection>
-        </SeasonSelection>
-        <IngredientCarousel>
-        </IngredientCarousel>
-        <RecipeCarousel>
-        </RecipeCarousel>
+            <SeasonSelection>
+            </SeasonSelection>
+            <IngredientCarousel>
+            </IngredientCarousel>
+            <RecipeCarousel>
+            </RecipeCarousel>
   </div>
 </template>
 
