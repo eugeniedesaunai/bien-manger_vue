@@ -19,15 +19,14 @@ export default {
   flex-direction: column;
   align-items: center;
   width: 100vw;
-  height: 390vh;
-  background-color: #D9D3CC;
+
 }
 
 @media(min-width: 768px) {
 
   .mounthAndSearch {
     justify-content: space-around;
-    height: 120vh;
+
   }
 }
 
@@ -35,7 +34,7 @@ export default {
 
   .mounthAndSearch {
     justify-content: space-around;
-    height: 150vh;
+
   }
 }
 </style>

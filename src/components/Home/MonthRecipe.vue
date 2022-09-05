@@ -14,7 +14,6 @@ export default {
 .recipesMounth {
     display: flex;
     flex-direction: column;
-    height: 280vh;
     justify-content: space-around;
 }
 
@@ -22,14 +21,14 @@ h1 {
     font-size: 2rem;
     align-self: center;
     margin: 0;
-    margin-top: 8rem;
+    margin-top: 5rem;
+    margin-bottom: 3rem;
 }
 
 @media(min-width: 768px) {
 
     .recipesMounth {
         width: 100vw;
-        height: 30vh;
         flex-direction: row;
         justify-content: space-around;
     }
@@ -40,9 +39,9 @@ h1 {
     }
 }
 
-@media(min-width: 1280px) {
+/* @media(min-width: 1280px) {
     .recipesMounth {
-        height: 150vh;
+      
     }
-}
+} */
 </style>

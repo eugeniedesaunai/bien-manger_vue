@@ -32,7 +32,7 @@ export default {
 .bouton {
   height: 50px;
   width: 50px;
-  background: rgba(224, 242, 196, 0.9);
+  background: rgba(29, 40, 75, 0.9);
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -51,16 +51,16 @@ export default {
 
 @media(min-width: 768px) {
   .bouton {
-    height: 80px;
-    width: 80px;
-
+    height: 70px;
+    width: 70px;
+    visibility: visible;
   }
 }
 
 @media(min-width: 1280px) {
   .bouton {
-    height: 100px;
-    width: 100px;
+    height: 80px;
+    width: 80px;
   }
 }
 </style>
