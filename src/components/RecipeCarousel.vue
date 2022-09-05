@@ -6,10 +6,10 @@
         <a class="carousel-item flexWrap" href="#4!"><MiniRecipe v-for="i in 2" :key="i"></MiniRecipe></a>
     </div>
     <div v-else class="carousel">
-        <a class="carousel-item flexWrap" href="#1!"><MiniRecipe v-for="i in 1" :key="i"></MiniRecipe></a>
-        <a class="carousel-item flexWrap" href="#2!"><MiniRecipe v-for="i in 1" :key="i"></MiniRecipe></a>
-        <a class="carousel-item flexWrap" href="#3!"><MiniRecipe v-for="i in 1" :key="i"></MiniRecipe></a>
-        <a class="carousel-item flexWrap" href="#4!"><MiniRecipe v-for="i in 1" :key="i"></MiniRecipe></a>
+        <a class="carousel-item flexWrap" href="#1!"><MiniRecipe :key="1"></MiniRecipe></a>
+        <a class="carousel-item flexWrap" href="#2!"><MiniRecipe :key="1"></MiniRecipe></a>
+        <a class="carousel-item flexWrap" href="#3!"><MiniRecipe :key="1"></MiniRecipe></a>
+        <a class="carousel-item flexWrap" href="#4!"><MiniRecipe :key="1"></MiniRecipe></a>
     </div>
 </template>
 
@@ -25,15 +25,9 @@
             props: {
             },
             components: { MiniRecipe },
-            mounted() {
-                window.onresize = () => {
-                this.windowWidth = window.innerWidth
-                }
-            },
             computed: {
                 getWindowWidth(){
-                    console.log(this.windowWidth);
-                    return this.windowWidth;  
+                    return  window.innerWidth; //this.windowWidth;  
                 }
             },
         }
@@ -50,7 +44,7 @@
  .carousel-item{
      left:auto;
      width:auto;
-     height:120vh;
+     height:80vh;
     }
 
     .imgMonth{
