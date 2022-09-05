@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 let options = {
     fullWidth: true,
+    padding: 100
 };
 
 document.addEventListener('DOMContentLoaded', function () {
