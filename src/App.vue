@@ -7,19 +7,54 @@
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #131E28;
+  scroll-behavior: smooth;
 }
+
+/* color à mettre dans un dossier spécifique */
 
 .texteColor {
   color: #131E28;
 }
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
+.blueColor {
+  color: #131E28;
 }
 
-nav a.router-link-exact-active {
-  color: #42b983;
+.greenColor {
+  color: #E0F2C4;
+}
+
+.darkGreenColor {
+  color: #A9BF99;
+}
+
+.beigeColor {
+  color: #BF9E80;
+}
+
+.greyColor {
+  color: #D9D3CC;
+}
+
+/* basic */
+
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
+
+.textCenter {
+  text-align: center;
+}
+
+.textUppercase {
+  text-transform: uppercase;
+}
+
+.flex {
+  display: flex;
 }
 </style>
