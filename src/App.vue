@@ -64,10 +64,9 @@
 }
 
 body {
-  background-color: var(--body-bg);
+  background-color: BF9E80;
   margin: 0;
   overflow-x: hidden;
-  overflow-y: hidden;
 }
 
 .backgroundStatics {

@@ -10,13 +10,13 @@ export default {
 </script>
 <style scoped>
 .imgMonth {
-    width: 70vw;
+    width: 60vw;
     height: 60vh;
     background-image: url(@/assets/Home/epice.jpg);
     background-size: cover;
     background-position: center;
     position: relative;
-
+    margin-bottom: 6rem;
 }
 
 p {
@@ -30,13 +30,14 @@ p {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+
 }
 
 @media(min-width: 768px) {
 
     .imgMonth {
         width: 20vw;
-        height: 20vh;
+        height: 30vw;
     }
 
     p {

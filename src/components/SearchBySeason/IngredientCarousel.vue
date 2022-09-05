@@ -25,6 +25,7 @@
      width:100%;
      height:5vh !important;
      text-align:center;
+     margin-top:5vh;
  }
  .carousel-item{
      left:auto;

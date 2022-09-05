@@ -1,22 +1,41 @@
 <template>
-    <div class="carousel">
-        <a class="carousel-item flexWrap" href="#1!"><p>1</p><p>1</p></a>
-        <a class="carousel-item flexWrap" href="#2!"><p>2</p><p>2</p></a>
-        <a class="carousel-item flexWrap" href="#3!"><p>3</p><p>3</p></a>
-        <a class="carousel-item flexWrap" href="#4!"><p>4</p><p>4</p></a>
-
+    <div  v-if="getWindowWidth > 768" class="carousel">
+        <a class="carousel-item flexWrap" href="#1!"><MiniRecipe v-for="i in 2" :key="i"></MiniRecipe></a>
+        <a class="carousel-item flexWrap" href="#2!"><MiniRecipe v-for="i in 2" :key="i"></MiniRecipe></a>
+        <a class="carousel-item flexWrap" href="#3!"><MiniRecipe v-for="i in 2" :key="i"></MiniRecipe></a>
+        <a class="carousel-item flexWrap" href="#4!"><MiniRecipe v-for="i in 2" :key="i"></MiniRecipe></a>
+    </div>
+    <div v-else class="carousel">
+        <a class="carousel-item flexWrap" href="#1!"><MiniRecipe v-for="i in 1" :key="i"></MiniRecipe></a>
+        <a class="carousel-item flexWrap" href="#2!"><MiniRecipe v-for="i in 1" :key="i"></MiniRecipe></a>
+        <a class="carousel-item flexWrap" href="#3!"><MiniRecipe v-for="i in 1" :key="i"></MiniRecipe></a>
+        <a class="carousel-item flexWrap" href="#4!"><MiniRecipe v-for="i in 1" :key="i"></MiniRecipe></a>
     </div>
 </template>
 
     <script>
+    import MiniRecipe from '@/components/MiniRecipe.vue';
         export default {
             name: 'RecipeCarousel',
             data() {
                 return {
+                    windowWidth: window.innerHeight,
                 }
             },
             props: {
-            }
+            },
+            components: { MiniRecipe },
+            mounted() {
+                window.onresize = () => {
+                this.windowWidth = window.innerWidth
+                }
+            },
+            computed: {
+                getWindowWidth(){
+                    console.log(this.windowWidth);
+                    return this.windowWidth;  
+                }
+            },
         }
     </script>
  <style scoped>
@@ -24,11 +43,47 @@
      margin:auto;
      width:100%;
     text-align:center;
+    margin-top:5vh;
      
  }
+
  .carousel-item{
      left:auto;
+     width:auto;
+     height:120vh;
+    }
+
+    .imgMonth{
+    margin-bottom:20vh;
+    }
+
+ @media(min-width: 768px) {
+     .carousel-item{
+     left:auto;
+     width:auto;
+     height:120vh;
+    }
+
+    .imgMonth{
+    margin-bottom:20vh;
+    }
  }
+
+ @media(min-width: 1280px) {
+     
+     .carousel-item{
+     left:auto;
+     width:auto;
+     height:100vh;
+    }
+
+    .imgMonth{
+    margin-bottom:10vh;
+    }
+ }
+
+
+
  .flexWrap{
      flex-wrap:wrap;
  }
