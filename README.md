@@ -33,3 +33,16 @@
 ![alt text](./public/img/Wireframe/Desktop%20-%20Page%20Formulaire%20Creation_Modification%20(%20saison%2C%20img%2C%20type%20plat%20).png)
 ![alt text](./public/img/Wireframe/Desktop%20-%20Page%20Formulaire%20Creation_Modification%20(%C3%A9tape).png)
 
+
+# Usage 
+
+Extensions installées:
+Vue Router
+Vuex
+
+
+# Installation
+Run npm install
+Copy .env.sample file to .env file
+Define the variables
+.env : npm install dotenv
