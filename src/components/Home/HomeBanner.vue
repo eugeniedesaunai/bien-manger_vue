@@ -12,7 +12,7 @@
 export default {
     name: 'HomeBanner',
     methods: {
-        Redirect(){
+        Redirect() {
             window.location.href = '/season/search';
         }
     },

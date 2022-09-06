@@ -11,6 +11,7 @@ export default createStore({
     recipes_ingredients: {}
   },
   getters: {
+
   },
   mutations: {
     init() {
@@ -61,5 +62,6 @@ export default createStore({
     }
   },
   modules: {
+
   }
 })
