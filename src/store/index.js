@@ -7,7 +7,8 @@ export default createStore({
     recipes: {},
     seasons: {},
     steps: {},
-    ingredients: {}
+    ingredients: {},
+    recipes_ingredients: {}
   },
   getters: {
   },
@@ -16,35 +17,50 @@ export default createStore({
       this.state.myheader.append("Authorization", "Bearer " + process.env.VUE_APP_AIRTABLE_API_KEY);
       this.state.options = { headers: this.state.myheader };
     },
-    storeRecipes(context, recipes) {
-      context.recipes = recipes;
-      console.log(context.recipes);
-    },
-    storeSeasons(context, seasons) {
-      context.seasons = seasons;
-      console.log(context.seasons);
+    /**
+     * @param itemList : resultat de la récupération des données 
+     * @param statename : nom du state correspondant à la table
+     * [recipes, seasons, steps, ingredients, recipes_ingredients]
+     */
+    storeItems(context, elements) {
+      let itemList = '';
+      let statename = '';
+      for (let index = 0; index < elements.length; index++) {
+        itemList = elements[0];
+        statename = elements[1];
+      }
+      statename;
+      context.statename = Object.assign({}, itemList);
+      console.log(context.statename);
     }
   },
   actions: {
-    getRecipes(context, element) {
-      console.log(element);
+    /**
+     * @param tablename : nom de la table
+     * [Recette, Saison, Etape, Ingredient, Recette_has_Ingredients]
+     * @param maxrecords: nombre de données dans la table
+     * @param statename : nom du state correspondant à la table
+     * appel de la fonction: this.$store.dispatch('getItems', [tablename, maxrecords, statename])
+     */
+    getItems(context, elements) {
+      let tablename = '';
+      let maxrecords = 0;
+      let statename = '';
+      for (let index = 0; index < elements.length; index++) {
+        console.log(elements[index]);
+        tablename = elements[0];
+        maxrecords = elements[1];
+        statename = elements[2];
+      }
       context.commit('init');
-      fetch("https://api.airtable.com/v0/appcCZi8CySwsHTVJ/Recette?maxRecords=3&view=Grid%20view", this.state.options)
+      fetch("https://api.airtable.com/v0/appcCZi8CySwsHTVJ/" + tablename + "?maxRecords=" + maxrecords + "&view=Grid%20view", this.state.options)
         .then((data) => data.json())
-        .then((recipes) => {
-          this.commit('storeRecipes', recipes);
-        });
-    },
-    getSeasons(context, element) {
-      console.log(element);
-      context.commit('init');
-      fetch("https://api.airtable.com/v0/appcCZi8CySwsHTVJ/Saison", this.state.options)
-        .then((data) => data.json())
-        .then((seasons) => {
-          this.commit('storeSeasons', seasons);
+        .then((result) => {
+          this.commit('storeItems', [result, statename]);
         });
     }
   },
   modules: {
+
   }
 })

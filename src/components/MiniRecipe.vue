@@ -1,6 +1,6 @@
 <template lang="">
             <div class="imgMonth">
-                <p> Be a nyan cat.></p>
+                <p> Be a nyan cat.</p>
             </div>
 </template>
 <script>
