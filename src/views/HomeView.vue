@@ -8,6 +8,7 @@
   <NavBar :isHomePage="true"></NavBar>
   <HomeBanner></HomeBanner>
   <SectionMonthRecipeSearchForm></SectionMonthRecipeSearchForm>
+  <RecipeCarousel></RecipeCarousel>
 </template>
 
 <script>
@@ -15,7 +16,7 @@
 import NavBar from '@/components/NavBar.vue';
 import HomeBanner from '@/components/Home/HomeBanner.vue';
 import SectionMonthRecipeSearchForm from '@/components/Home/SectionMonthRecipeSearchForm.vue';
-
+import RecipeCarousel from '@/components/RecipeCarousel.vue';
 
 export default {
   name: 'HomeView',
@@ -23,7 +24,7 @@ export default {
     NavBar,
     HomeBanner,
     SectionMonthRecipeSearchForm,
-
+    RecipeCarousel
   }
 }
 </script >
