@@ -15,7 +15,7 @@
 import InputText from '@/components/forms/InputForm.vue';
 import Button from '@/components/forms/ButtonForm.vue';
 import SelectForm from '@/components/forms/SelectForm.vue';
-import NavBar from '@/components/NavBar.vue'
+import NavBar from '@/components/NavBar.vue';
 export default {
 
     name: 'RecipeCreate',
