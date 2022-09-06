@@ -44,8 +44,8 @@ export default createStore({
      * url: [Recette, Saison, Etape, Ingredient, Recette_has_Ingredients]
      */
     getItems(context, elements) {
-      let url = '';
-      let maxrecords = 0;
+      let url = ''; // nom de la table
+      let maxrecords = 0; // nombre valeur table
       let name = '';
       for (let index = 0; index < elements.length; index++) {
         console.log(elements[index]);
@@ -54,7 +54,8 @@ export default createStore({
         name = elements[2];
       }
       context.commit('init');
-      fetch("https://api.airtable.com/v0/appcCZi8CySwsHTVJ/" + url + "?maxRecords=" + maxrecords + "&view=Grid%20view", this.state.options)
+      fetch("https://api.airtable.com/v0/appcCZi8CySwsHTVJ/" + url + "?maxRecords=" + maxrecords + "&view=Grid%20view",
+        this.state.options)
         .then((data) => data.json())
         .then((result) => {
           this.commit('store' + name, result);
