@@ -7,7 +7,8 @@ export default createStore({
     recipes: {},
     seasons: {},
     steps: {},
-    ingredients: {}
+    ingredients: {},
+    recipes_ingredients: {}
   },
   getters: {
   },
@@ -17,31 +18,45 @@ export default createStore({
       this.state.options = { headers: this.state.myheader };
     },
     storeRecipes(context, recipes) {
-      context.recipes = recipes;
+      context.recipes = Object.assign({}, recipes);
       console.log(context.recipes);
     },
     storeSeasons(context, seasons) {
-      context.seasons = seasons;
+      context.seasons = Object.assign({}, seasons);
       console.log(context.seasons);
+    },
+    storeIngredients(context, ingredients) {
+      context.ingredients = Object.assign({}, ingredients);
+      console.log(context.ingredients);
+    },
+    storeSteps(context, steps) {
+      context.steps = Object.assign({}, steps);
+      console.log(context.steps);
+    },
+    storeRecipesIngredients(context, recipes_ingredients) {
+      context.recipes_ingredients = Object.assign({}, recipes_ingredients);
+      console.log(context.recipes_ingredients);
     }
   },
   actions: {
-    getRecipes(context, element) {
-      console.log(element);
+    /**
+     * url: [Recette, Saison, Etape, Ingredient, Recette_has_Ingredients]
+     */
+    getItems(context, elements) {
+      let url = '';
+      let maxrecords = 0;
+      let name = '';
+      for (let index = 0; index < elements.length; index++) {
+        console.log(elements[index]);
+        url = elements[0];
+        maxrecords = elements[1];
+        name = elements[2];
+      }
       context.commit('init');
-      fetch("https://api.airtable.com/v0/appcCZi8CySwsHTVJ/Recette?maxRecords=3&view=Grid%20view", this.state.options)
+      fetch("https://api.airtable.com/v0/appcCZi8CySwsHTVJ/" + url + "?maxRecords=" + maxrecords + "&view=Grid%20view", this.state.options)
         .then((data) => data.json())
-        .then((recipes) => {
-          this.commit('storeRecipes', recipes);
-        });
-    },
-    getSeasons(context, element) {
-      console.log(element);
-      context.commit('init');
-      fetch("https://api.airtable.com/v0/appcCZi8CySwsHTVJ/Saison", this.state.options)
-        .then((data) => data.json())
-        .then((seasons) => {
-          this.commit('storeSeasons', seasons);
+        .then((result) => {
+          this.commit('store' + name, result);
         });
     }
   },
