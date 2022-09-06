@@ -5,13 +5,17 @@
         and purr purr purr purr yawn proudly present butt to human. Bird bird bird bird bird bird human why 
         take bird out i could have eaten that snuggles up to shoulders?
     </p>
-<input   type="button" class="buttonSaison absolute greenColor textUppercase" value="Cherchez une recette par saison">
+<input @click='Redirect' type="button" class="buttonSaison absolute greenColor textUppercase" value="Cherchez une recette par saison">
 </template>
 <script>
 
 export default {
     name: 'HomeBanner',
-
+    methods: {
+        Redirect(){
+            window.location.href = '/season/search';
+        }
+    },
 }
 </script>
 
