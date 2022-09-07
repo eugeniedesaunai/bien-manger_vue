@@ -1,8 +1,8 @@
 <template lang="">
     <NavBar></NavBar>
     <article>
-        <div class="imgRecipe"></div>
-        <p></p>
+        <div class="imgRecipe"> </div>
+        <p> {{ $store.getters.state}} </p>
     </article>
     
 </template>
