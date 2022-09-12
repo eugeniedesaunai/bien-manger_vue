@@ -1,5 +1,6 @@
 import { createStore } from 'vuex'
 
+
 export default createStore({
   state: {
     myheader: new Headers(),
@@ -11,6 +12,10 @@ export default createStore({
     recipes_ingredients: {}
   },
   getters: {
+    /*     state(state) {
+          state.getItems(['Saison', 5, 'saesons']);
+          return state.seasons;
+        }*/
   },
   mutations: {
     init() {
