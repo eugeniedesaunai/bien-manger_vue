@@ -43,10 +43,5 @@ class AirtableAPI {
 }
 
 export default new AirtableAPI({
-  url: process.env.VUE_APP_AIRTABLE_API_URL // Of course, this should be set as env variable API_URL
-
-<<<<<<< HEAD
-=======
-
->>>>>>> main
+  url: process.env.VUE_APP_AIRTABLE_API_URL // Of course, this should be set as env variable API_URLain
 })
