@@ -24,7 +24,7 @@ export default {
     },
     created() {
         //this.$store.dispatch('created', this.result);
-        this.$store.dispatch('season/checkSeason');
+        this.$store.dispatch('recipe/checkRecipe');
         // this.returnName();
     },
 }
