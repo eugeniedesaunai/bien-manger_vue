@@ -2,21 +2,38 @@
     <NavBar></NavBar>
     <article>
         <div class="imgRecipe"></div>
-        <p>{{this.$store.dispatch('getItems')}}</p>
+        <p>{{this.$store.getters['season/getSeason', 'Eté']}}</p>
     </article>
     
 </template>
 <script>
 import NavBar from '@/components/NavBar.vue';
-import api from '@/services/airtable';
+
 export default {
     name: "RecipeShow",
+    data() {
+        return {
+            result: '',
+            name: []
+        }
+    },
     components: {
         NavBar
     },
-    async created() {
-        let r = await api.find({ resource: 'Recette', query: 'maxRecords=5' })
-        console.log(r);
+    methods: {
+        // returnName() {
+        //     let item = this.$store.getters.showItem;
+        //     Object.keys(item).forEach(key => {
+        //         Object.keys(item[key]).forEach(child => {
+        //             this.name.push(item[key][child].fields.Name);
+        //         })
+        //     })
+        // }
+    },
+    created() {
+        //this.$store.dispatch('created', this.result);
+        this.$store.dispatch('season/checkSeason');
+        // this.returnName();
     },
 }
 </script>
