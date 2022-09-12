@@ -2,7 +2,11 @@
     <NavBar></NavBar>
     <article>
         <div class="imgRecipe"></div>
+<<<<<<< HEAD
         <p>{{this.$store.getters['season/getSeason', 'Eté']}}</p>
+=======
+        <p> {{this.$store.getters.showItem}}</p>
+>>>>>>> 323845a3a20852e8643179c2c1f5fc0da0d9a8d0
     </article>
     
 </template>
@@ -20,6 +24,7 @@ export default {
     components: {
         NavBar
     },
+<<<<<<< HEAD
     methods: {
         // returnName() {
         //     let item = this.$store.getters.showItem;
@@ -35,6 +40,11 @@ export default {
         this.$store.dispatch('season/checkSeason');
         // this.returnName();
     },
+=======
+    created() {
+        this.$store.dispatch('created', this.result);
+    }
+>>>>>>> 323845a3a20852e8643179c2c1f5fc0da0d9a8d0
 }
 </script>
 
