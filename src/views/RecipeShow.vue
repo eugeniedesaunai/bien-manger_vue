@@ -20,27 +20,14 @@ export default {
     components: {
         NavBar
     },
-<<<<<<< HEAD
     methods: {
-        // returnName() {
-        //     let item = this.$store.getters.showItem;
-        //     Object.keys(item).forEach(key => {
-        //         Object.keys(item[key]).forEach(child => {
-        //             this.name.push(item[key][child].fields.Name);
-        //         })
-        //     })
-        // }
+
     },
     created() {
         //this.$store.dispatch('created', this.result);
         this.$store.dispatch('season/checkSeason');
         // this.returnName();
     },
-=======
-    created() {
-        this.$store.dispatch('created', this.result);
-    }
->>>>>>> 323845a3a20852e8643179c2c1f5fc0da0d9a8d0
 }
 </script>
 
