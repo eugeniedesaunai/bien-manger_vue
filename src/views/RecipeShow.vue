@@ -2,22 +2,21 @@
     <NavBar></NavBar>
     <article>
         <div class="imgRecipe"></div>
-        <p>{{this.$store.dispatch('getItems')}}</p>
+        <p> {{this.$store.getters.showItem}}</p>
     </article>
     
 </template>
 <script>
 import NavBar from '@/components/NavBar.vue';
-import api from '@/services/airtable';
+
 export default {
     name: "RecipeShow",
     components: {
         NavBar
     },
-    async created() {
-        let r = await api.find({ resource: 'Recette', query: 'maxRecords=5' })
-        console.log(r);
-    },
+    created() {
+        this.$store.dispatch('created', this.result);
+    }
 }
 </script>
 

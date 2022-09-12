@@ -1,4 +1,5 @@
-import { createStore } from 'vuex'
+import { createStore } from 'vuex';
+import api from '@/services/airtable';
 
 export default createStore({
   state: {
@@ -11,8 +12,8 @@ export default createStore({
     recipes_ingredients: {}
   },
   getters: {
-    shomItem(state) {
-      return state.recipes;
+    showItem(state) {
+      return state.seasons;
     }
 
   },
@@ -66,7 +67,14 @@ export default createStore({
     //       this.commit('storeItems', [result, statename]);
     //     });
     // }
+
+    async created() {
+      let result = await api.find({ resource: 'Saison', query: 'maxRecords=5' });
+      this.state.seasons = result;
+      console.log(result);
+    },
   },
+
   modules: {
 
   }
