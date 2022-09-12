@@ -2,7 +2,7 @@
     <NavBar></NavBar>
     <article>
         <div class="imgRecipe"></div>
-        <p></p>
+        <p> {{this.$store.getters.showItem}}</p>
     </article>
     
 </template>
@@ -14,7 +14,8 @@ export default {
         NavBar
     },
     created() {
-    },
+        this.$store.dispatch('created', this.result);
+    }
 }
 </script>
 

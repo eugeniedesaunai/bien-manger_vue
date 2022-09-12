@@ -3,7 +3,7 @@ class AirtableAPI {
   constructor({ url }) {
     this.baseURL = url
     this.options = {
-      headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer keyBBAVx1ha03kF1G' }, // Of course, this token should not be here.
+      headers: { 'Content-Type': 'application/json', 'Authorization': "Bearer " + process.env.VUE_APP_AIRTABLE_API_KEY }, // Of course, this token should not be here.
     }
   }
 
@@ -42,6 +42,6 @@ class AirtableAPI {
 }
 
 export default new AirtableAPI({
-  url: "https://api.airtable.com/v0/appcCZi8CySwsHTVJ/" // Of course, this should be set as env variable API_URL
+  url: process.env.VUE_APP_API_URL // Of course, this should be set as env variable API_URL
 
 })
