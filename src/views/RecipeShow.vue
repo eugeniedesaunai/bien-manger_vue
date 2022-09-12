@@ -2,7 +2,7 @@
     <NavBar></NavBar>
     <article>
         <div class="imgRecipe"></div>
-        <p> {{this.$store.getters.showItem}}</p>
+        <p>{{this.$store.getters['season/getSeason', 'Eté']}}</p>
     </article>
     
 </template>
@@ -11,12 +11,23 @@ import NavBar from '@/components/NavBar.vue';
 
 export default {
     name: "RecipeShow",
+    data() {
+        return {
+            result: '',
+            name: []
+        }
+    },
     components: {
         NavBar
     },
+    methods: {
+
+    },
     created() {
-        this.$store.dispatch('created', this.result);
-    }
+        //this.$store.dispatch('created', this.result);
+        this.$store.dispatch('season/checkSeason');
+        // this.returnName();
+    },
 }
 </script>
 

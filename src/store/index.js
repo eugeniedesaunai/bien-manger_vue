@@ -1,5 +1,7 @@
-import { createStore } from 'vuex';
+import { createStore } from 'vuex'
 import api from '@/services/airtable';
+import recipe from './recipe';
+import season from './season';
 
 export default createStore({
   state: {
@@ -13,29 +15,25 @@ export default createStore({
   },
   getters: {
     showItem(state) {
-      return state.seasons.records[1].fields.Name;
+      return state.seasons;
     }
 
   },
   mutations: {
-
     init() {
       this.state.myheader.append("Authorization", "Bearer " + process.env.VUE_APP_AIRTABLE_API_KEY);
       this.state.options = { headers: this.state.myheader };
     },
-
   },
   actions: {
-
-
-    async created() {
-      let result = await api.find({ resource: 'Saison', query: 'maxRecords=5' });
+    async created(result) {
+      result = await api.find({ resource: 'Saison', query: 'maxRecords=10' })
       this.state.seasons = result;
-      console.log(result);
-    },
+    }
   },
 
   modules: {
-
+    recipe,
+    season
   }
 })
