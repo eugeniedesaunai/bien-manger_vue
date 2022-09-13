@@ -2,7 +2,7 @@
     <NavBar></NavBar>
     <article>
         <div class="imgRecipe"></div>
-        <select @v-for="(item, index) in name" :key="index" name="" id="">{{index}}</select>
+        <select @v-for="(item, index) in name" :key="index" name="" id="">{{item}}</select>
         <p> {{this.$store.getters['ingredient/getIngredient']}}</p>
     </article>
     

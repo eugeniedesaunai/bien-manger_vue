@@ -2,8 +2,8 @@ import api from '@/services/airtable';
 export default {
     namespaced: true,
     state: {
+        currentIngredient: [],
         ingredient: [],
-        temps: [],
         ingredientList: [],
     },
     getters: {
@@ -24,7 +24,7 @@ export default {
                     temp.push({ id: item[key][child].id, name: item[key][child].fields.Name });
                 })
             })
-            state.temps = temp;
+            state.currentIngredient = temp;
             state.ingredient = temp;
             console.log(state.ingredient);
         }
@@ -34,7 +34,7 @@ export default {
             let result = await api.find({ resource: 'Ingredient', query: 'maxRecords=10' })
             this.state.ingredient = result;
             console.log(result);
-            if (this.state.ingredient !== this.state.temps) {
+            if (this.state.ingredient !== this.state.currentIngredient) {
                 console.log('coucou');
                 context.commit('fillIngredient');
             }
