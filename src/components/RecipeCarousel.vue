@@ -20,6 +20,7 @@
             data() {
                 return {
                     windowWidth: window.innerHeight,
+                    name: [],
                 }
             },
             props: {
@@ -29,6 +30,11 @@
                 getWindowWidth(){
                     return  window.innerWidth; //this.windowWidth;  
                 }
+            },
+            created() {
+                this.$store.dispatch('recipe/checkRecipe');
+                this.name = this.$store.getters['recipe/getRecipeCarousel'];
+                //this.$store.dispatch('ingredient/checkIngredient');
             },
         }
     </script>

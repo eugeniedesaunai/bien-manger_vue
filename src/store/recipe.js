@@ -3,56 +3,48 @@ export default {
     namespaced: true,
     state: {
         recipe: {},
-        recipeIngredient: {},
     },
     getters: {
-        getSeason(state, name) {
-            return state.recipe[name];
-        }
+        getRecipe(state) {
+            return state.recipe;
+        },
+
+        /*getRecipePerSeason(state, seasonId) {
+            //let temp = state.recipe.filter(recipe => recipe.Saison.id == seasonId)
+            //console.log(temp);
+            for (let r of state.recipe) {
+
+            }
+        },
+
+        getRecipePerIngredient() {
+
+        }*/
     },
     mutations: {
-        fillRecipe() {
-            let temp = [];
-            let tempIngrdients = [];
-            let ingredients = this.state.recipeIngredient;
-            let item = this.state.recipe;
-            Object.keys(item).forEach(keyRecipe => {
-                Object.keys(item[keyRecipe]).forEach(childRecipe => {
-
-                    Object.keys(ingredients).forEach(keyIngredient => {
-                        Object.keys(ingredients[keyIngredient]).forEach(childIngredient => {
-                            Object.keys(ingredients[keyIngredient][childIngredient].fields.Recette).forEach(recipeId => {
-                                if (ingredients[keyIngredient][childIngredient].fields.Recette[recipeId] == item[keyRecipe][childRecipe].id) {
-                                    tempIngrdients.push({
-                                        ingredientIds: ingredients[keyIngredient][childIngredient].fields.Ingredient,
-                                        quantity: ingredients[keyIngredient][childIngredient].fields.Quantity,
-                                        unit: ingredients[keyIngredient][childIngredient].fields.Unit
-                                    })
-                                }
-                            });
-                        })
-                    })
-                    temp.push({
-                        Recipe: {
-                            id: item[keyRecipe][childRecipe].id,
-                            name: item[keyRecipe][childRecipe].fields.Name,
-                            description: item[keyRecipe][childRecipe].fields.Description,
-                            ingredient: tempIngrdients,
-                            step: item[keyRecipe][childRecipe].fields.Etape,
-                            season: item[keyRecipe][childRecipe].fields.Saison
-                        }
-                    });
-                })
-            })
-            this.state.recipe = temp;
+        async fillRecipe() {
+            let { records } = this.state.recipe
+            let recipes = records.map(record => { return { id: record.id, ...record.fields } })
+            let ingredients = await api.find({ resource: 'Recette_has_Ingredient', query: '' });
+            ({ records } = ingredients)
+            ingredients = records.map(record => { return { id: record.id, ...record.fields } })
+            for (let r of recipes) {
+                r.ingredients = ingredients.filter(i => i.Recette.includes(r.id))
+            }
+            let images = await api.find({ resource: 'Image', query: '' });
+            ({ records } = images)
+            images = records.map(record => { return { id: record.id, ...record.fields } })
+            for (let r of recipes) {
+                r.images = images.filter(i => i.Recette.includes(r.id))
+            }
+            this.state.recipe = recipes;
+            console.log(this.state.recipe);
         }
     },
     actions: {
         async checkRecipe(context) {
             let result = await api.find({ resource: 'Recette', query: 'maxRecords=10' });
             this.state.recipe = result;
-            result = await api.find({ resource: 'Recette_has_Ingredient', query: 'maxRecords=30' });
-            this.state.recipeIngredient = result;
             context.commit('fillRecipe');
         }
     }
