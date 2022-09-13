@@ -2,8 +2,10 @@
     <NavBar></NavBar>
     <article>
         <div class="imgRecipe"></div>
-        <select @v-for="(item, index) in name" :key="index" name="" id="">{{item}}</select>
-        <p> {{this.$store.getters['ingredient/getIngredient']}}</p>
+       <select  name="" id="" >
+            <option v-for="(item, index) in name" :value= "index" :key="item.id">{{item.name}}</option>
+        </select> 
+        <p> {{this.$store.getters['ingredient/listIngredient']}}</p>
     </article>
     
 </template>
@@ -15,7 +17,7 @@ export default {
     data() {
         return {
             result: '',
-            name: this.$store.getters['ingredient/getIngredient'],
+            name: []
         }
     },
     components: {
@@ -24,10 +26,12 @@ export default {
     methods: {
 
     },
+    updated() {
+        this.name = this.$store.getters['ingredient/listIngredient']
+    },
     created() {
-        //this.$store.dispatch('created', this.result);
         this.$store.dispatch('ingredient/checkIngredient');
-        // this.returnName();
+
     },
 }
 </script>

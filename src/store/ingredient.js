@@ -7,13 +7,10 @@ export default {
         ingredientList: [],
     },
     getters: {
-        getIngredient(state) {
-            let ingredientList = []
-            for (let index = 0; index < state.ingredient.length; index++) {
-                ingredientList.push(state.ingredient[index].name)
-            }
-            return ingredientList
-        }
+        listIngredient(state) {
+            return state.ingredient;
+        },
+
     },
     mutations: {
         fillIngredient(state) {
