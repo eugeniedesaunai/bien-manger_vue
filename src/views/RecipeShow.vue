@@ -2,7 +2,15 @@
     <NavBar></NavBar>
     <article>
         <div class="imgRecipe"></div>
-        <p>{{this.$store.getters['season/getSeason', 'Eté']}}</p>
+        <p>{{this.$store.getters['season/getSeasons']('Eté')}}</p>
+        <select>
+            <option v-for="(item, index) in name" :value="index" :key="item.id">{{item.name}}</option>
+        </select>
+        {{this.$store.getters['season/getName']}}
+       <select  name="" id="" >
+            <option v-for="(item, index) in name" :value= "index" :key="item.id">{{item.name}}</option>
+        </select> 
+        <p> {{this.$store.getters['ingredient/listIngredient']}}</p>
     </article>
     
 </template>
@@ -23,10 +31,17 @@ export default {
     methods: {
 
     },
+    updated() {
+        //this.name = this.$store.getters['season/getName'];
+        this.name = this.$store.getters['meal/getName'];
+    },
     created() {
-        //this.$store.dispatch('created', this.result);
         this.$store.dispatch('season/checkSeason');
-        // this.returnName();
+        this.$store.dispatch('meal/checkMeal');
+        this.name = this.$store.getters['ingredient/listIngredient']
+    },
+    created() {
+        this.$store.dispatch('ingredient/checkIngredient');
     },
 }
 </script>
