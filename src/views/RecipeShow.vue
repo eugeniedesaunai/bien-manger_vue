@@ -21,7 +21,10 @@
 </template>
 <script>
 import NavBar from '@/components/NavBar.vue';
+<<<<<<< HEAD
 import SelectForm from '@/components/SeasonSelect.vue';
+=======
+>>>>>>> 13362c956115fbf5da7d9dad22042cd9b7843eb4
 export default {
     name: "RecipeShow",
     data() {
