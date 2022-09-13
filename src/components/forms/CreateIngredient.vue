@@ -1,29 +1,24 @@
 <template lang="">
     <div>
-        <label for="">Ingredient: </label>
-        <select  name="" id="" >
-            <option v-for="(item, index) in ingredients" :value= "index" :key="item.id">{{item.name}}</option>
-        </select> 
+        <label for="">Ingrédient: :</label>
+        <input type="text" name="" id="">
         <label for="">Quantité :</label>
         <input type="text" name="quantité" id="">
     </div>
+    
 </template>
 <script>
 export default {
     name: "IngredientSelect",
-    computed: {
-        ingredients() {
-            return this.$store.getters['ingredient/listIngredient'];
-        }
-
-    },
     data() {
         return {
+            name: []
         }
     },
 
     created() {
         this.$store.dispatch('ingredient/checkIngredient');
+        this.name = this.$store.getters['ingredient/listIngredient'];
     },
 }
 </script>

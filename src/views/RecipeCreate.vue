@@ -7,6 +7,7 @@
             <SelectForm @selectOption="get_selected" content="Saison: " fname="season" :options=seasons />
             <InputText @selectInput="get_input" content="Nom de l'image : " fname="image" />
             <SelectForm @selectOption="get_selected" content="Plats: " fname="meal" :options=meals />
+
             <Button value="Créer" @someclick="test" />
         </form>
     </div>
