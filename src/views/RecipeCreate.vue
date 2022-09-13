@@ -24,7 +24,7 @@ export default {
             newRecipe: { name: '', season: '', image: '', meal: '' },
             fields: ['recipe', 'season', 'image', 'meal'],
             Valid: [],
-            seasons: ['test', 'toto'],
+            seasons: [],
             meals: ['entrée', 'plats'],
             recipe: '',
             image: '',
@@ -90,6 +90,12 @@ export default {
                 }
             })
         }
+    },
+    updated() {
+        this.seasons = this.$store.getters['season/getName'];
+    },
+    created() {
+        this.$store.dispatch['season/checkSeason'];
     }
 }
 </script>

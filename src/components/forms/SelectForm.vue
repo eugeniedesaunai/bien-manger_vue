@@ -3,7 +3,7 @@
         <label class="label" :for=fname>{{ content }}</label>
         <select class="validate" required="" aria-required="true" v-model="selected" @change="SelectOption" :name=fname
             :id=fname>
-            <option v-for="(option, index) in options" :value="option" :key="index">{{ option
+            <option v-for="(option, index) in options" :value="index" :key="option.id">{{ option.name
             }}
             </option>
 
@@ -33,8 +33,6 @@ select {
     background-color: var(--body-bg);
     border-color: var(--body-bg);
 }
-
-select:hover {}
 
 .input-field .label {
     margin-top: -3em;

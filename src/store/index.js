@@ -2,6 +2,7 @@ import { createStore } from 'vuex'
 import api from '@/services/airtable';
 import recipe from './recipe';
 import season from './season';
+import meal from './meal';
 
 export default createStore({
   state: {
@@ -34,6 +35,7 @@ export default createStore({
 
   modules: {
     recipe,
-    season
+    season,
+    meal
   }
 })
