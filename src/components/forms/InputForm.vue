@@ -4,20 +4,18 @@
         <input class="validate" v-model="value" @change="SelectInput" type="text" :id=fname :name=fname required=""
             aria-required="true">
     </div>
-
 </template>
 <script>
 export default {
     props: {
         fname: String,
-        content: String
+        content: String,
     },
     methods: {
         SelectInput() {
             this.$emit('selectInput', this.value);
         }
     },
-
 }
 </script>
 <style>
