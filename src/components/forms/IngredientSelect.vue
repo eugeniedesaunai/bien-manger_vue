@@ -28,7 +28,6 @@ export default {
     data() {
         return {
             values: this.myObject,
-            newListIngredient: this.$store.getters['ingredient/listIngredient'],
             newIngredient: {},
         }
     },
@@ -43,8 +42,7 @@ export default {
         },
         addIngredient() {
             this.$store.dispatch("ingredient/add", this.newIngredient)
-            this.newIngredient = ''
-            //this.newListIngredient.push(newIngredient);
+
         }
     },
     emits: ['update:myObject'],
