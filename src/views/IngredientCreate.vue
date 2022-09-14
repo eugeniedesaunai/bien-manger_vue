@@ -1,7 +1,7 @@
 <template lang="">
 <NavBar></NavBar>
 <div>
-    <IngredientSelect  v-for="i in newIngredients" :key="i"  class="taille" v-model:myObject="ingredientRecette"></IngredientSelect>  
+    <IngredientSelect  v-for="i in newIngredients" :key="i"  class="taille" v-model:ingredientRecette="ingredientRecette"></IngredientSelect>  
     <input @click="addFormNewIngredient"  type="button" value="+">
     <input @click="addIngredient"  type="submit" value="envoyer">
 </div>

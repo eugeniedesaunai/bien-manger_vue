@@ -2,27 +2,31 @@ import api from '@/services/airtable';
 export default {
     namespaced: true,
     state: {
-        currentIngredient: [],
-        ingredient: [],
+        currentIngredients: [],
+        ingredients: [],
+
     },
     getters: {
         listIngredient(state) {
-            return state.ingredient;
+            return state.ingredients;
         },
 
     },
     mutations: {
-        fillIngredient(state) {
+        // permet de trier l'objet retourner par la BDD 
+        fillIngredients(state) {
             let temp = [];
-            let item = this.state.ingredient;
+            let item = this.state.ingredients;
             Object.keys(item).forEach(key => {
                 Object.keys(item[key]).forEach(child => {
                     temp.push({ id: item[key][child].id, name: item[key][child].fields.Name });
                 })
             })
-            state.currentIngredient = temp;
-            state.ingredient = temp;
+            state.currentIngrediens = temp;
+            state.ingredients = temp;
         },
+
+
         add(state, record) {
             state.ingredient.push(record)
         }
@@ -30,14 +34,20 @@ export default {
     actions: {
         async checkIngredient(context) {
             let result = await api.find({ resource: 'Ingredient', query: 'maxRecords=10' })
-            this.state.ingredient = result;
-            if (this.state.ingredient !== this.state.currentIngredient) {
-                context.commit('fillIngredient');
+            this.state.ingredients = result;
+            if (this.state.ingredients !== this.state.currentIngredients) {
+                context.commit('fillIngredients');
             }
         },
-        add(context, ingredient_name) {
-            let objet = { id: null, name: ingredient_name }
-            context.commit("add", objet)
+        // permet d'ajouter un ingrédient s'il n'existe pas
+        async add(context, ingredient_name) {
+            let objet = {
+                records: [
+                    { fields: { Name: ingredient_name } }]
+            }
+            await api.create({ resource: 'Ingredient', data: objet })
+
+            context.dispatch('checkIngredient')
         }
     }
 }
