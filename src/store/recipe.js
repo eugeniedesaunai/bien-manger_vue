@@ -2,28 +2,29 @@ import api from '@/services/airtable';
 export default {
     namespaced: true,
     state: {
-        recipe: {},
+        recipes: [],
+        recipesApi: [],
     },
     getters: {
         getRecipe(state) {
-            return state.recipe;
+            return state.recipes;
         },
 
-        /*getRecipePerSeason(state, seasonId) {
-            //let temp = state.recipe.filter(recipe => recipe.Saison.id == seasonId)
-            //console.log(temp);
-            for (let r of state.recipe) {
-
-            }
+        getRecipePerSeason: (state) => (seasonId) => {
+            console.log(state.recipes);
+            let recipe = state.recipes.filter(recipe => recipe.Saison.includes(seasonId));
+            recipe = recipe.map(recipe => { return { id: recipe.id, name: recipe.Name, img: recipe.Image } })
+            console.log(recipe);
+            return recipe;
         },
-
-        getRecipePerIngredient() {
-
-        }*/
+        /*
+                getRecipePerIngredient(state, ingredientId) {
+        
+                }*/
     },
     mutations: {
         async fillRecipe() {
-            let { records } = this.state.recipe
+            let { records } = this.state.recipesApi
             let recipes = records.map(record => { return { id: record.id, ...record.fields } })
             let ingredients = await api.find({ resource: 'Recette_has_Ingredient', query: '' });
             ({ records } = ingredients)
@@ -37,14 +38,14 @@ export default {
             for (let r of recipes) {
                 r.images = images.filter(i => i.Recette.includes(r.id))
             }
-            this.state.recipe = recipes;
-            console.log(this.state.recipe);
+            this.state.recipes = recipes;
+            console.log(this.state.recipes);
         }
     },
     actions: {
         async checkRecipe(context) {
             let result = await api.find({ resource: 'Recette', query: 'maxRecords=10' });
-            this.state.recipe = result;
+            this.state.recipesApi = result;
             context.commit('fillRecipe');
         }
     }

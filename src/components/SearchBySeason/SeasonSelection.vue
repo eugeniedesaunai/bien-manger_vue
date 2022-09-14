@@ -30,7 +30,10 @@
                         }
                     }
                 }
-            }
+            },
+            created() {
+                this.$store.dispatch('season/checkSeason');
+            },
         }
     </script>
 
