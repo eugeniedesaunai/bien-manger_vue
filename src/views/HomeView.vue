@@ -1,5 +1,5 @@
 <template>
-  <div class="bouton" id="backToTop">
+  <div class="bouton" @click='scrollToTopButton' id="backToTop">
     <!-- Importez votre icone 
    <img src="arrow-up-solid.svg" class="icone">
    -->
@@ -26,30 +26,24 @@ export default {
     SectionMonthRecipeSearchForm,
     RecipeCarousel
   },
-  methods: {
-      scrollToTopButton() {
-        let bouton = document.querySelector('.bouton');
-
-        bouton.addEventListener('click', () => {
-
-          window.scrollTo({
-            top: 0,
-            left: 0,
-            behavior: "smooth"
-          })
-        })
-      },
-      handleScroll (scrollY) {
-        console.log(scrollY)
-        if (scrollY >= 200) {
-        document.getElementById('backToTop').style.visibility = "visible";
-        } else {
-        document.getElementById('backToTop').style.visibility = "hidden";
-        }
-      },
+  methods: { 
+    scrollToTopButton() {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth"
+      })
+    }  
   },
   created () {
-    window.addEventListener('scroll', this.handleScroll);
+    window.onscroll = function() {
+      if (scrollY >= 200) {
+        document.getElementById('backToTop').style.visibility = "visible";
+      } else {
+        document.getElementById('backToTop').style.visibility = "hidden";
+      }
+    }
+
   },
 
   

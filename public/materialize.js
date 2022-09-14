@@ -1,9 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     var elems = document.querySelectorAll('.sidenav');
     M.Sidenav.init(elems, {});
-    var instances = M.Carousel.init(elems);
-
-});
+}, { passive: true });
 
 let options = {
     fullWidth: true,
@@ -13,6 +11,5 @@ let options = {
 
 document.addEventListener('DOMContentLoaded', function () {
     var elems = document.querySelectorAll('.carousel');
-    var instances = M.Carousel.init(elems, options);
-
-});
+    M.Carousel.init(elems, options);
+}, { passive: true });
