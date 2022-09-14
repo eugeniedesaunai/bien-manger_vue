@@ -1,14 +1,12 @@
 <template>
     <div class="input-field col s12">
-        <label class="label" :for=fname>{{ content }}</label>
-        <select class="validate" required="" aria-required="true" v-model="selected" @change="SelectOption" :name=fname
-            :id=fname>
-            <option v-for="(option, index) in options" :value="index" :key="option.id">{{ option.name
+        <label class="label" :for=fname>{{content}}</label>
+        <select class="validate" required="" aria-required="true" v-model="selected" @change="SelectOption($event)"
+            :name=fname :id=fname>
+            <option v-for="(item) in name" :value="item.name" :key="item.id">{{ item.name
             }}
             </option>
-
         </select>
-
     </div>
 </template>
 <script>
@@ -16,12 +14,21 @@ export default {
     props: {
         fname: String,
         content: String,
-        options: Array
+        func: String,
     },
     methods: {
-        SelectOption() {
-            this.$emit('selectOption', this.selected)
+        // Récuparation de la selection
+        SelectOption(event) {
+            this.$emit('selectOption', event.target.value)
         }
+    },
+    computed: {
+        name() {
+            return this.$store.getters[this.fname + '/getName'];
+        }
+    },
+    created() {
+        this.$store.dispatch(this.fname + '/' + this.func);
     }
 }
 </script>
@@ -33,6 +40,7 @@ select {
     background-color: var(--body-bg);
     border-color: var(--body-bg);
 }
+
 
 .input-field .label {
     margin-top: -3em;

@@ -1,13 +1,12 @@
 <template>
     <NavBar :isHomePage="false"></NavBar>
     <div class="container">
-
         <form action="" onsubmit="return false;">
             <InputText @selectInput="get_input" content="Nom de la recette : " fname="recipe" />
-            <SelectForm @selectOption="get_selected" content="Saison: " fname="season" :options=seasons />
+            <SelectForm @selectOption="get_season" content="Saison : " fname="season" func="checkSeason"></SelectForm>
             <InputText @selectInput="get_input" content="Nom de l'image : " fname="image" />
-            <SelectForm @selectOption="get_selected" content="Plats: " fname="meal" :options=meals />
-            <Button value="Créer" @someclick="test" />
+            <SelectForm @selectOption="get_meal" content="Plat : " fname="meal" func="checkMeal"></SelectForm>
+            <Button value="Suivant" @someclick="Next" />
         </form>
     </div>
 </template>
@@ -24,8 +23,6 @@ export default {
             newRecipe: { name: '', season: '', image: '', meal: '' },
             fields: ['recipe', 'season', 'image', 'meal'],
             Valid: [],
-            seasons: [],
-            meals: ['entrée', 'plats'],
             recipe: '',
             image: '',
             season: '',
@@ -35,12 +32,12 @@ export default {
     components: {
         InputText,
         Button,
+        NavBar,
         SelectForm,
-        NavBar
     },
     methods: {
         //Action
-        test() {
+        Next() {
             this.Valid = [];
             this.check_values();
             if (this.Valid.length == this.fields.length) {
@@ -51,18 +48,13 @@ export default {
                 alert(Object.values(this.newRecipe));
             }
         },
-        //Recupération des options selectionnés
-        get_selected(selected) {
-            for (let index = 0; index < this.seasons.length; index++) {
-                if (this.seasons[index] == selected) {
-                    this.season = selected;
-                }
-            }
-            for (let index = 0; index < this.meals.length; index++) {
-                if (this.meals[index] == selected) {
-                    this.meal = selected;
-                }
-            }
+        //Recupération de la saison
+        get_season(selected) {
+            this.season = selected;
+        },
+        //Recupération du plat
+        get_meal(selected) {
+            this.meal = selected;
         },
         //Recupération des valeurs
         get_input(value) {
@@ -91,12 +83,6 @@ export default {
             })
         }
     },
-    updated() {
-        this.seasons = this.$store.getters['season/getName'];
-    },
-    created() {
-        this.$store.dispatch['season/checkSeason'];
-    }
 }
 </script>
 <style>

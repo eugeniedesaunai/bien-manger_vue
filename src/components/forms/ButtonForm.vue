@@ -1,13 +1,10 @@
 <template>
     <div>
-        <button class="button" @click="click">{{ value }}</button>
+        <input type="button" class="button" @click="click" v-model="value" />
     </div>
 </template>
 <script>
 export default {
-    props: {
-        value: String,
-    },
     methods: {
         click() {
             this.$emit('someclick');
@@ -23,10 +20,12 @@ export default {
     margin-left: auto;
     margin-right: auto;
     border-radius: 0.5em;
+    width: fit-content;
 }
 
 .button:hover {
     background-color: black;
     color: var(--color-gray);
+    cursor: pointer;
 }
 </style>
