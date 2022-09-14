@@ -3,10 +3,9 @@ import HomeView from '../views/HomeView.vue'
 import RecipeListView from '../views/RecipeListView.vue'
 import RecipeShow from '../views/RecipeShow.vue'
 import RecipeCreate from '../views/RecipeCreate.vue'
-import StepCreate from '../views/StepCreate.vue'
 import SearchBySeason from '../views/SearchBySeason.vue'
 import IngredientCreate from '../views/IngredientCreate.vue'
-
+import StepsCreate from '../views/StepsCreate.vue'
 
 const routes = [
   {
@@ -43,9 +42,9 @@ const routes = [
     component: IngredientCreate
   },
   {
-    path: '/step/create',
-    name: 'stepCreate',
-    component: StepCreate
+    path: '/recipe/create/steps',
+    name: 'stepsCreate',
+    component: StepsCreate
   },
   {
     path: '/season/search',

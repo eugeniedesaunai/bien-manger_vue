@@ -51,6 +51,15 @@ export default {
             if (state.recipe != state.recipesApi) {
                 commit('fillRecipe');
             }
+        },
+        // permet d'ajouter des étapes
+        async addSteps(context, { name, stepNumber, description }) {
+            let recette_id = "recM9wxxQYN17fDlY"
+            let objet = {
+                records: [
+                    { fields: { Name: name, NoEtape: Number(stepNumber), Description: description, Recette: [recette_id] } }]
+            }
+            await api.create({ resource: 'Etape', data: objet })
         }
     }
 

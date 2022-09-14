@@ -13,7 +13,7 @@
         <input type="text" name="quantité" id="" :value="ingredientRecette.quantity" @input="setQuantity($event.target.value)">
         <label for="">Unité :</label>
         <input type="text" name="unité" id="" :value="ingredientRecette.unit" @input="setUnit($event.target.value)">
-        <input @click="addIngredient"  type="submit" value="oubliez-moi">
+
     </div>
 </template>
 <script>
