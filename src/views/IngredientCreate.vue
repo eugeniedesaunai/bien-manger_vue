@@ -20,18 +20,19 @@ export default {
     data() {
         return {
             newIngredients: [{}],
-            ingredientRecette: { ingredient: undefined, quantity: 0 }
+            ingredientRecette: { ingredient: undefined, quantity: 0, unit: undefined }
         }
     },
     methods: {
-
         addFormNewIngredient: function () {
             this.newIngredients.push({})
         },
-        addIngredient: function () {
-
-        }
+        addIngredient() {
+            console.log(this.ingredientRecette)
+            this.$store.dispatch("ingredient/addNewQuantity", this.ingredientRecette)
+        },
     },
+
 }
 </script>
 <style scoped>

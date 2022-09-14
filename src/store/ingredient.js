@@ -39,15 +39,25 @@ export default {
                 context.commit('fillIngredients');
             }
         },
-        // permet d'ajouter un ingrédient s'il n'existe pas
-        async add(context, ingredient_name) {
+
+        // permet d'ajouter un ingrédient s'il n'existe pas en BDD
+        async addNewIngredient(context, ingredient_name) {
             let objet = {
                 records: [
                     { fields: { Name: ingredient_name } }]
             }
             await api.create({ resource: 'Ingredient', data: objet })
-
             context.dispatch('checkIngredient')
+        },
+
+        // permet d'ajouter une quantité 
+        async addNewQuantity(context, { ingredient, quantity, unit }) {
+            let recette_id = "recM9wxxQYN17fDlY"
+            let objet = {
+                records: [
+                    { fields: { Recette: [recette_id], Ingredient: [ingredient], Quantity: Number(quantity), Unit: unit } }]
+            }
+            await api.create({ resource: 'Recette_has_Ingredient', data: objet })
         }
     }
 }
