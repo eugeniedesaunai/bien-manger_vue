@@ -1,6 +1,6 @@
 <template lang="">
-<NavBar></NavBar>
-<div>
+<NavBar class="fixed"></NavBar>
+<div class="flex column widthForm alignCenter spaceAround">
     <IngredientSelect  v-for="i in newIngredients" :key="i"  class="taille" v-model:ingredientRecette="ingredientRecette"></IngredientSelect>  
     <input @click="addFormNewIngredient"  type="button" value="+">
     <input @click="addIngredient"  type="submit" value="envoyer">
@@ -24,12 +24,16 @@ export default {
         }
     },
     methods: {
+        redirect() {
+            window.location.href = '/recipe/create/Steps';
+        },
         addFormNewIngredient: function () {
             this.newIngredients.push({})
         },
         addIngredient() {
-            console.log(this.ingredientRecette)
+
             this.$store.dispatch("ingredient/addNewQuantity", this.ingredientRecette)
+            this.redirect()
         },
     },
 
@@ -38,5 +42,9 @@ export default {
 <style scoped>
 .taille {
     width: 30vw;
+}
+
+.fixed {
+    position: fixed;
 }
 </style>

@@ -1,8 +1,11 @@
-<template lang="">
-    <NavBar></NavBar>
+<template lang="">   
+<NavBar></NavBar>
+    <section class="flex column widthForm alignCenter spaceAround">
     <StepsForm class="taille"  v-for="i in newStep" :key="i" v-model:stepsRecipes="stepsRecipes"></StepsForm>
     <input @click="addNewFormStep"  type="button" value="+">
     <input type="submit" value="" @click="addSteps">
+    </section>
+   
 </template>
 <script>
 import NavBar from '@/components/NavBar.vue';

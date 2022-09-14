@@ -1,12 +1,12 @@
 <template>
     <NavBar :isHomePage="false"></NavBar>
     <div class="container">
-        <form action="" onsubmit="return false;">
+        <form class="flex column widthForm alignCenter spaceAround" action="" onsubmit="return false;">
             <InputText @selectInput="get_input" content="Nom de la recette : " fname="recipe" />
             <SelectForm @selectOption="get_season" content="Saison : " fname="season" func="checkSeason"></SelectForm>
             <InputText @selectInput="get_input" content="Nom de l'image : " fname="image" />
             <SelectForm @selectOption="get_meal" content="Plat : " fname="meal" func="checkMeal"></SelectForm>
-            <Button value="Suivant" @someclick="Next" />
+            <Button value="Suivant" @someclick="Next" @click="redirect" />
         </form>
     </div>
 </template>
@@ -36,6 +36,9 @@ export default {
         SelectForm,
     },
     methods: {
+        redirect() {
+            window.location.href = '/recipe/create/Ingredient';
+        },
         //Action
         Next() {
             this.Valid = [];
@@ -84,18 +87,17 @@ export default {
         }
     },
 }
-</script>
-<style>
+</script >
+<style scoped>
 :root {
     --color-gray: #9e9e9e;
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 10em;
+    width: 100vw;
+    height: 100%;
 }
+
 
 .invalid {
     border-bottom: 1px solid #F44336;

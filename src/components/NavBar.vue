@@ -1,5 +1,5 @@
 <template lang="">
-<nav :class="className">
+<nav :class="className" >
     <div class="nav-wrapper">
       <a href="/" class="brand-logo center texteColor">CuisiSaison</a>
      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
@@ -62,6 +62,7 @@ export default {
     height: 15vh;
   }
 }
+
 
 nav {
   z-index: 1;

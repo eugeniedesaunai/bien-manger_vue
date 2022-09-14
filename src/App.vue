@@ -8,12 +8,18 @@
   --body-bg: #D9D3CC;
 }
 
+
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
+  width: 100vw;
+  height: 100vh;
+
 }
+
 
 /* color à mettre dans un dossier spécifique */
 
@@ -47,6 +53,10 @@
   position: absolute;
 }
 
+.fixed {
+  position: fixed;
+}
+
 .relative {
   position: relative;
 }
@@ -63,11 +73,30 @@
   display: flex;
 }
 
+.column {
+  flex-direction: column;
+}
+
+.spaceAround {
+  justify-content: space-around;
+}
+
+.spaceBetween {
+  justify-content: space-between;
+}
+
+
 body {
   background-color: BF9E80;
   margin: 0;
   overflow-x: hidden;
 }
+
+.widthForm {
+  margin: auto;
+  width: 35%;
+}
+
 
 .backgroundStatics {
   position: fixed;
