@@ -15,17 +15,21 @@ class AirtableAPI {
       .then(data => data.json())
   }
 
+
+
+  create({ resource, data }) {
+    let url = this.baseURL + resource
+    let options = {
+      ...this.options,
+      method: 'POST',
+      body: JSON.stringify(data),
+    }
+    return fetch(url, options)
+      .then(data => data.json())
+  }
   /*
   get({ resource, id, query }) {
   }
- 
-  create({ resource, data, query }) {
-    let options = {
-      ...this.options,
-      mode: 'POST'
-    }
-  }
- 
   update({ resource, id, data, query }) {
     let options = {
       ...this.options,

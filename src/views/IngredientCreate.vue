@@ -1,7 +1,7 @@
 <template lang="">
 <NavBar></NavBar>
 <div>
-    <IngredientSelect  v-for="i in newIngredients" :key="i"  class="taille" v-model:myObject="ingredientRecette"></IngredientSelect>  
+    <IngredientSelect  v-for="i in newIngredients" :key="i"  class="taille" v-model:ingredientRecette="ingredientRecette"></IngredientSelect>  
     <input @click="addFormNewIngredient"  type="button" value="+">
     <input @click="addIngredient"  type="submit" value="envoyer">
 </div>
@@ -20,18 +20,19 @@ export default {
     data() {
         return {
             newIngredients: [{}],
-            ingredientRecette: { ingredient: undefined, quantity: 0 }
+            ingredientRecette: { ingredient: undefined, quantity: 0, unit: undefined }
         }
     },
     methods: {
-
         addFormNewIngredient: function () {
             this.newIngredients.push({})
         },
-        addIngredient: function () {
-
-        }
+        addIngredient() {
+            console.log(this.ingredientRecette)
+            this.$store.dispatch("ingredient/addNewQuantity", this.ingredientRecette)
+        },
     },
+
 }
 </script>
 <style scoped>
