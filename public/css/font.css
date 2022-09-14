@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+
+/* pour liste ingredient et étape lors de la création */
+.listCreateFont {
+    font-family: 'Space Mono', monospace;
+}
+
+
+/* pour le texte  */
+.textFont {
+    font-family: 'Poppins', sans-serif;
+}

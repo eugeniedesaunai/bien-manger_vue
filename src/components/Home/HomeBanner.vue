@@ -1,6 +1,6 @@
 <template lang="">
     <div class="imgBanner "> </div>
-    <p class="textBanner absolute blueColor textCenter">
+    <p class="textBanner absolute blueColor textCenter textFont">
         Be a nyan cat, feel great about it, be annoying 24/7 poop rainbows in litter box all day love blinks 
         and purr purr purr purr yawn proudly present butt to human. Bird bird bird bird bird bird human why 
         take bird out i could have eaten that snuggles up to shoulders?
