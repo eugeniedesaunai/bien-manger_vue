@@ -11,8 +11,7 @@ export default {
         },
 
         getRecipePerSeason: (state) => (seasonId) => {
-            console.log(state.recipes);
-            let recipe = state.recipes.filter(recipe => recipe.Saison.includes(seasonId));
+            let recipe = state.recipes.filter(recipe => recipe.Saison?.includes(seasonId));
             recipe = recipe.map(recipe => { return { id: recipe.id, name: recipe.Name, img: recipe.Image } })
             console.log(recipe);
             return recipe;
@@ -23,8 +22,8 @@ export default {
                 }*/
     },
     mutations: {
-        async fillRecipe() {
-            let { records } = this.state.recipesApi
+        async fillRecipe(state) {
+            let { records } = state.recipesApi
             let recipes = records.map(record => { return { id: record.id, ...record.fields } })
             let ingredients = await api.find({ resource: 'Recette_has_Ingredient', query: '' });
             ({ records } = ingredients)
@@ -38,15 +37,20 @@ export default {
             for (let r of recipes) {
                 r.images = images.filter(i => i.Recette.includes(r.id))
             }
-            this.state.recipes = recipes;
-            console.log(this.state.recipes);
+            state.recipes = recipes;
+            console.log(state.recipes);
+        },
+        setRecipesApi(state, data) {
+            state.recipesApi = data;
         }
     },
     actions: {
-        async checkRecipe(context) {
+        async checkRecipe({ commit, state }) {
             let result = await api.find({ resource: 'Recette', query: 'maxRecords=10' });
-            this.state.recipesApi = result;
-            context.commit('fillRecipe');
+            commit('setRecipesApi', result);
+            if (state.recipe != state.recipesApi) {
+                commit('fillRecipe');
+            }
         }
     }
 

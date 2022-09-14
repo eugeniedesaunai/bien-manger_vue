@@ -11,6 +11,7 @@
         <a class="carousel-item flexWrap" href="#3!"><MiniRecipe :key="1"></MiniRecipe></a>
         <a class="carousel-item flexWrap" href="#4!"><MiniRecipe :key="1"></MiniRecipe></a>
     </div>
+    <p @click="$store.getters['recipe/getRecipePerSeason'](seasonId)">{{seasonId}}</p>
 </template>
 
     <script>
@@ -20,10 +21,10 @@
             data() {
                 return {
                     windowWidth: window.innerHeight,
-                    name: [],
                 }
             },
             props: {
+                seasonId: String,
             },
             components: { MiniRecipe },
             computed: {
@@ -33,7 +34,6 @@
             },
             created() {
                 this.$store.dispatch('recipe/checkRecipe');
-                this.name = this.$store.getters['recipe/getRecipeCarousel'];
                 //this.$store.dispatch('ingredient/checkIngredient');
             },
         }

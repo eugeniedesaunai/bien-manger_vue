@@ -25,7 +25,34 @@ export default {
     HomeBanner,
     SectionMonthRecipeSearchForm,
     RecipeCarousel
-  }
+  },
+  methods: {
+      scrollToTopButton() {
+        let bouton = document.querySelector('.bouton');
+
+        bouton.addEventListener('click', () => {
+
+          window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "smooth"
+          })
+        })
+      },
+      handleScroll (scrollY) {
+        console.log(scrollY)
+        if (scrollY >= 200) {
+        document.getElementById('backToTop').style.visibility = "visible";
+        } else {
+        document.getElementById('backToTop').style.visibility = "hidden";
+        }
+      },
+  },
+  created () {
+    window.addEventListener('scroll', this.handleScroll);
+  },
+
+  
 }
 </script >
 

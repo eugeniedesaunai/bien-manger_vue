@@ -19,9 +19,11 @@
             },
             props: {
             },
+            emits:['seasonSelection'],
             methods:{
                 SeasonSelect(season,id){
-                    this.seasonSelection = season;
+                    this.seasonSelection = this.$store.getters['season/getSeasons'](season);
+                    this.$emit('seasonSelection',this.seasonSelection)
                     for(let i=0; i < 4;i++ ){
                         if(id == 'season' + i){
                             document.getElementById('season' + i).classList.add("selected");

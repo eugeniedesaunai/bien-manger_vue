@@ -1,11 +1,11 @@
 <template>
   <div>
         <NavBar :isHomePage="false"></NavBar>
-            <SeasonSelection>
+            <SeasonSelection @seasonSelection='getSeasonId'>
             </SeasonSelection>
             <IngredientCarousel>
             </IngredientCarousel>
-            <RecipeCarousel>
+            <RecipeCarousel :seasonId='seasonId'>
             </RecipeCarousel>
   </div>
 </template>
@@ -19,11 +19,23 @@ import RecipeCarousel from '@/components/RecipeCarousel.vue'
 
 export default {
   name: 'SearchBySeason',
+  data(){
+    return{
+      seasonId:'',
+    }
+  },
+  props:{
+  },
   components: {
     SeasonSelection,
     IngredientCarousel,
     NavBar,
     RecipeCarousel
+  },
+  methods:{
+      getSeasonId(value){
+        this.seasonId=value;
+      }
   }
 }
 </script>
