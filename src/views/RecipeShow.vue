@@ -37,10 +37,9 @@ export default {
     created() {
         this.$store.dispatch('season/checkSeason');
         this.$store.dispatch('meal/checkMeal');
-        this.name = this.$store.getters['ingredient/listIngredient'],
-            this.$store.dispatch('ingredient/checkIngredient');
+        this.name = this.$store.getters['ingredient/listIngredient'];
+        this.$store.dispatch('ingredient/checkIngredient');
     },
-
 }
 </script>
 
