@@ -2,57 +2,50 @@ import api from '@/services/airtable';
 export default {
     namespaced: true,
     state: {
-        recipe: {},
-        recipeIngredient: {},
+        recipes: [],
+        recipesApi: [],
     },
     getters: {
-        getSeason(state, name) {
-            return state.recipe[name];
-        }
+        getRecipe(state) {
+            return state.recipes;
+        },
+
+        getRecipePerSeason: (state) => (seasonId) => {
+            console.log(state.recipes);
+            let recipe = state.recipes.filter(recipe => recipe.Saison.includes(seasonId));
+            recipe = recipe.map(recipe => { return { id: recipe.id, name: recipe.Name, img: recipe.Image } })
+            console.log(recipe);
+            return recipe;
+        },
+        /*
+                getRecipePerIngredient(state, ingredientId) {
+        
+                }*/
     },
     mutations: {
-        fillRecipe() {
-            let temp = [];
-            let tempIngrdients = [];
-            let ingredients = this.state.recipeIngredient;
-            let item = this.state.recipe;
-            Object.keys(item).forEach(keyRecipe => {
-                Object.keys(item[keyRecipe]).forEach(childRecipe => {
-
-                    Object.keys(ingredients).forEach(keyIngredient => {
-                        Object.keys(ingredients[keyIngredient]).forEach(childIngredient => {
-                            Object.keys(ingredients[keyIngredient][childIngredient].fields.Recette).forEach(recipeId => {
-                                if (ingredients[keyIngredient][childIngredient].fields.Recette[recipeId] == item[keyRecipe][childRecipe].id) {
-                                    tempIngrdients.push({
-                                        ingredientIds: ingredients[keyIngredient][childIngredient].fields.Ingredient,
-                                        quantity: ingredients[keyIngredient][childIngredient].fields.Quantity,
-                                        unit: ingredients[keyIngredient][childIngredient].fields.Unit
-                                    })
-                                }
-                            });
-                        })
-                    })
-                    temp.push({
-                        Recipe: {
-                            id: item[keyRecipe][childRecipe].id,
-                            name: item[keyRecipe][childRecipe].fields.Name,
-                            description: item[keyRecipe][childRecipe].fields.Description,
-                            ingredient: tempIngrdients,
-                            step: item[keyRecipe][childRecipe].fields.Etape,
-                            season: item[keyRecipe][childRecipe].fields.Saison
-                        }
-                    });
-                })
-            })
-            this.state.recipe = temp;
+        async fillRecipe() {
+            let { records } = this.state.recipesApi
+            let recipes = records.map(record => { return { id: record.id, ...record.fields } })
+            let ingredients = await api.find({ resource: 'Recette_has_Ingredient', query: '' });
+            ({ records } = ingredients)
+            ingredients = records.map(record => { return { id: record.id, ...record.fields } })
+            for (let r of recipes) {
+                r.ingredients = ingredients.filter(i => i.Recette.includes(r.id))
+            }
+            let images = await api.find({ resource: 'Image', query: '' });
+            ({ records } = images)
+            images = records.map(record => { return { id: record.id, ...record.fields } })
+            for (let r of recipes) {
+                r.images = images.filter(i => i.Recette.includes(r.id))
+            }
+            this.state.recipes = recipes;
+            console.log(this.state.recipes);
         }
     },
     actions: {
         async checkRecipe(context) {
             let result = await api.find({ resource: 'Recette', query: 'maxRecords=10' });
-            this.state.recipe = result;
-            result = await api.find({ resource: 'Recette_has_Ingredient', query: 'maxRecords=30' });
-            this.state.recipeIngredient = result;
+            this.state.recipesApi = result;
             context.commit('fillRecipe');
         }
     }
