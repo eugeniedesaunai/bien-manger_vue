@@ -1,15 +1,13 @@
 <template lang="">
 <NavBar></NavBar>
 <div>
-    <input type="text" v-model="eugenie">
-    <IngredientSelect class="taille" v-for="i in ingredients" :key="i"></IngredientSelect>  
-    <input @click="addFormElement"  type="button" value="+">
-    <div></div>
-    <CreateIngredient class="taille"></CreateIngredient>  
+    <IngredientSelect  v-for="i in newIngredients" :key="i"  class="taille" v-model:myObject="ingredientRecette"></IngredientSelect>  
+    <input @click="addFormNewIngredient"  type="button" value="+">
+    <input @click="addIngredient"  type="submit" value="envoyer">
 </div>
 </template>
 <script>
-import CreateIngredient from '@/components/forms/CreateIngredient.vue'
+
 import IngredientSelect from '@/components/forms/IngredientSelect.vue'
 import NavBar from '@/components/NavBar.vue';
 export default {
@@ -17,24 +15,27 @@ export default {
     components: {
         IngredientSelect,
         NavBar,
-        CreateIngredient
+
     },
     data() {
         return {
-            ingredients: [{}],
-            eugenie: "muse"
+            newIngredients: [{}],
+            ingredientRecette: { ingredient: undefined, quantity: 0 }
         }
     },
     methods: {
-        addFormElement: function () {
-            console.log("cc")
-            this.ingredients.push({})
+
+        addFormNewIngredient: function () {
+            this.newIngredients.push({})
+        },
+        addIngredient: function () {
+
         }
     },
 }
 </script>
 <style scoped>
 .taille {
-    width: 50vw;
+    width: 30vw;
 }
 </style>

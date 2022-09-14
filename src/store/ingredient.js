@@ -4,7 +4,6 @@ export default {
     state: {
         currentIngredient: [],
         ingredient: [],
-        ingredientList: [],
     },
     getters: {
         listIngredient(state) {
@@ -23,18 +22,22 @@ export default {
             })
             state.currentIngredient = temp;
             state.ingredient = temp;
-            console.log(state.ingredient);
+        },
+        add(state, record) {
+            state.ingredient.push(record)
         }
     },
     actions: {
         async checkIngredient(context) {
             let result = await api.find({ resource: 'Ingredient', query: 'maxRecords=10' })
             this.state.ingredient = result;
-            console.log(result);
             if (this.state.ingredient !== this.state.currentIngredient) {
-                console.log('coucou');
                 context.commit('fillIngredient');
             }
+        },
+        add(context, ingredient_name) {
+            let objet = { id: null, name: ingredient_name }
+            context.commit("add", objet)
         }
     }
 }
