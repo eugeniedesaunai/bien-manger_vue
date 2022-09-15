@@ -19,8 +19,10 @@ export default {
     },
     data() {
         return {
+            newRecipe: JSON.parse(localStorage.getItem('recipe')),
             newStep: [{}],
-            stepsRecipes: { name: undefined, stepNumber: 0, description: undefined }
+            stepsRecipes: { name: undefined, stepNumber: 0, description: undefined },
+            ingredientRecette: JSON.parse(localStorage.getItem('ingredients'))
         }
     },
     methods: {
@@ -29,7 +31,11 @@ export default {
         },
         addSteps() {
             console.log(this.stepsRecipes)
-            this.$store.dispatch("recipe/addSteps", this.stepsRecipes)
+            this.newRecipe.steps = this.stepsRecipes;
+            console.log(this.newRecipe);
+            this.$store.dispatch("recipe/addRecipes", this.newRecipe);
+            this.$store.dispatch("recipe/addSteps", this.stepsRecipes);
+
         },
     }
 }

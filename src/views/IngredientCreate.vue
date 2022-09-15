@@ -19,6 +19,7 @@ export default {
     },
     data() {
         return {
+            newRecipe: JSON.parse(localStorage.getItem('recipe')),
             newIngredients: [{}],
             ingredientRecette: { ingredient: undefined, quantity: 0, unit: undefined }
         }
@@ -28,10 +29,13 @@ export default {
             window.location.href = '/recipe/create/Steps';
         },
         addFormNewIngredient: function () {
-            this.newIngredients.push({})
+            this.newIngredients.push({});
         },
         addIngredient() {
-
+            this.newRecipe.ingredients = this.ingredientRecette;
+            console.log(this.ingredientRecette);
+            localStorage.setItem('recipe', JSON.stringify(this.newRecipe));
+            localStorage.setItem('ingredients', JSON.stringify(this.ingredientRecette));
             this.$store.dispatch("ingredient/addNewQuantity", this.ingredientRecette)
             this.redirect()
         },
