@@ -18,6 +18,13 @@ export default {
 
 div {
     width: 100vw;
-    height: 12vh;
+    height: 30vh;
+}
+
+@media(min-width: 768px) {
+    div {
+        width: 100vw;
+        height: 12vh;
+    }
 }
 </style>
