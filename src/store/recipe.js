@@ -12,14 +12,13 @@ export default {
 
         getRecipePerSeason: (state) => (seasonId) => {
             let recipe = state.recipes.filter(recipe => recipe.Saison?.includes(seasonId));
-            recipe = recipe.map(recipe => { return { id: recipe.id, name: recipe.Name, img: recipe.Image } })
-            console.log(recipe);
+            recipe = recipe.map(recipe => { return { id: recipe.id, name: recipe.Name, img: recipe.images } });
             return recipe;
         },
-        /*
-                getRecipePerIngredient(state, ingredientId) {
-        
-                }*/
+
+        getRecipePerId: (state) => (recipeId) => {
+            return state.recipes.find(recipe => recipe.id == recipeId);
+        }
     },
     mutations: {
         async fillRecipe(state) {
@@ -35,7 +34,13 @@ export default {
             ({ records } = images)
             images = records.map(record => { return { id: record.id, ...record.fields } })
             for (let r of recipes) {
-                r.images = images.filter(i => i.Recette.includes(r.id))
+                r.images = images.filter(i => i?.Recette?.includes(r.id))
+            }
+            let steps = await api.find({ resource: 'Etape', query: '' });
+            ({ records } = steps)
+            steps = records.map(record => { return { id: record.id, ...record.fields } })
+            for (let r of recipes) {
+                r.steps = steps.filter(i => i.Recette.includes(r.id))
             }
             state.recipes = recipes;
             console.log(state.recipes);
