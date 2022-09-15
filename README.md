@@ -46,6 +46,7 @@ Run npm install
 Copy .env.sample file to .env file  
 Define the variables  
 .env : npm install dotenv  
+vue3-carousel  
 
 # Amélioration à effectuer
 Faire la barre de recherche sur la HomePage  
