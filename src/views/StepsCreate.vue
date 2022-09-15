@@ -1,11 +1,11 @@
 <template lang="">   
 <NavBar></NavBar>
-<section>
-    <article class="flex">
-        <StepsForm class="stepForm"  v-for="(step,i) in newStep" :key="i" v-model:stepsRecipes="newStep[i]"></StepsForm>
+<section class="flex column widthForm alignCenter spaceAround">
+    <article>
+        <StepsForm class="stepForm  marginForm"  v-for="(step,i) in newStep" :key="i" v-model:stepsRecipes="newStep[i]"></StepsForm>
     </article>
-    <a class="btn-floating btn-large waves-effect waves-light red"  @click="addNewFormStep"  ><i class="material-icons">add</i></a>
-    <input class="btn waves-effect waves-light" type="submit" value="envoyer" @click="addSteps">
+    <a class="btn-floating btn-large waves-effect waves-light bgDarkGreenColor"  @click="addNewFormStep"  ><i class="material-icons">add</i></a>
+    <input class="buttonForm greenColor textUppercase" type="submit" value="envoyer" @click="addSteps">
 </section>
     
    

@@ -42,7 +42,13 @@ Vuex
 
 
 # Installation
-Run npm install
-Copy .env.sample file to .env file
-Define the variables
-.env : npm install dotenv
+Run npm install  
+Copy .env.sample file to .env file  
+Define the variables  
+.env : npm install dotenv  
+
+# Amélioration à effectuer
+Faire la barre de recherche sur la HomePage  
+Bouton envoyer du formulaire, renvoie sur la page de la recette qui vient d'être créer  
+Bouton précédent sur formulaire  
+Problème avec le boutton suivant de la 1ère page du formulaire  

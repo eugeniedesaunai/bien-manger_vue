@@ -1,10 +1,12 @@
 <template lang="">
 <NavBar class="fixed"></NavBar>
-<article class="flex column widthForm alignCenter spaceAround">
-    <IngredientSelect  v-for="(ingredient, i) in newIngredients" :key="i"  class="taille" v-model:ingredientRecette="newIngredients[i]"></IngredientSelect>  
-    <a @click="addFormNewIngredient" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
-    <input class="btn waves-effect waves-light" @click="addIngredient"  type="submit" value="envoyer">
+<section class="flex column widthForm alignCenter spaceAround">
+<article>
+     <IngredientSelect  v-for="(ingredient, i) in newIngredients" :key="i"  class="taille marginForm" v-model:ingredientRecette="newIngredients[i]"></IngredientSelect>  
 </article>
+    <a @click="addFormNewIngredient" class="btn-floating btn-large waves-effect waves-light bgDarkGreenColor"><i class="material-icons">add</i></a>
+    <input class="buttonForm greenColor textUppercase" @click="addIngredient"  type="submit" value="envoyer" href="">
+</section>
 </template>
 <script>
 
@@ -19,14 +21,13 @@ export default {
     },
     data() {
         return {
-
             ingredientRecette: { ingredient: undefined, quantity: 0, unit: undefined },
             newIngredients: [{ ingredient: undefined, quantity: 0, unit: undefined }],
         }
     },
     methods: {
         redirect() {
-            window.location.href = '/recipe/create/Steps';
+            this.$router.push({ name: 'stepsCreate' })
         },
         addFormNewIngredient: function () {
             this.newIngredients.push({ ...this.ingredientRecette })
@@ -34,7 +35,6 @@ export default {
         addIngredient() {
             for (let i = 0; i < this.newIngredients.length; i++) {
                 this.$store.dispatch("ingredient/addNewQuantity", this.newIngredients[i])
-
             }
             this.redirect()
         },
@@ -45,15 +45,5 @@ export default {
 <style scoped>
 .taille {
     width: 30vw;
-}
-
-.fixed {
-    position: fixed;
-}
-
-.note {
-    background-color: bisque;
-    width: 30vw;
-    height: 50vh;
 }
 </style>

@@ -7,10 +7,10 @@
 
         <label class="blueColor" for="Nom de la Recette">Ingredient: </label>
         <input  type="search" name="nom_ingredient" id="">
-
+        <SelectForm @selectOption="get_season" content="Saison : " fname="season" func="checkSeason"></SelectForm>
         <label class="blueColor" for="Saison"> Saisons :</label>
         <div  class="input-field col s12" >
-             <select>
+        <select>
                 <option value="" disabled selected>Choisissez une saison</option>
                 <option value="1">Printemps</option>
                 <option value="2">Été</option>
@@ -18,7 +18,7 @@
                 <option value="4">Hiver</option>
         </select>      
   </div>
-  <input type="submit" class="buttonSaison greenColor textUppercase" name="Rechercher" id="">
+  <input type="submit" class="buttonForm greenColor textUppercase" name="Rechercher" id="">
     </article>
 </template>
 <script>
@@ -36,16 +36,6 @@ select {
     height: 2rem;
 }
 
-.buttonSaison {
-    top: 78%;
-    left: 20%;
-    margin: 0;
-    border-radius: 1rem;
-    width: 60vw;
-    height: 8vh;
-    white-space: normal;
-    background-color: rgba(29, 40, 75, 0.7);
-}
 
 .formSearch {
     display: flex;
@@ -64,16 +54,13 @@ h2 {
     font-size: 2rem;
 }
 
+
 input[type=search]:not(.browser-default) {
     width: 80%;
-    height: 8%;
-    background-color: #E0F2C4;
-}
-
-input[type=search]:not(.browser-default):focus {
-    border: 0px solid #131E28;
+    height: 20%;
 
 }
+
 
 @media(min-width: 768px) {
     .formSearch {

@@ -29,6 +29,28 @@ body {
   width: 35%;
 }
 
+.buttonHome {
+  margin: 0;
+  border-radius: 1rem;
+  width: 60vw;
+  height: 8vh;
+  white-space: normal;
+  background-color: rgba(29, 40, 75, 0.7);
+}
+
+
+.buttonForm {
+  margin: 0;
+  border-radius: 1rem;
+  width: 30vw;
+  height: 5vh;
+  white-space: normal;
+  background-color: rgba(29, 40, 75, 0.9);
+}
+
+.marginForm {
+  padding: 2rem;
+}
 
 .backgroundStatics {
   position: fixed;

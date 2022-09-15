@@ -1,7 +1,7 @@
 <template>
     <NavBar :isHomePage="false"></NavBar>
     <div class="container">
-        <form class="flex column widthForm alignCenter spaceAround" action="" onsubmit="return false;">
+        <form class="flex column widthForm spaceAround form" action="" onsubmit="return false;">
             <InputText @selectInput="get_input" content="Nom de la recette : " fname="recipe" />
             <SelectForm @selectOption="get_season" content="Saison : " fname="season" func="checkSeason"></SelectForm>
             <InputText @selectInput="get_input" content="Nom de l'image : " fname="image" />
@@ -37,7 +37,7 @@ export default {
     },
     methods: {
         redirect() {
-            window.location.href = '/recipe/create/Ingredient';
+            this.$router.push({ name: 'ingredientCreate' })
         },
         //Action
         Next() {
@@ -97,6 +97,9 @@ export default {
     width: 100vw;
 }
 
+.form {
+    height: 80vh;
+}
 
 .invalid {
     border-bottom: 1px solid #F44336;
