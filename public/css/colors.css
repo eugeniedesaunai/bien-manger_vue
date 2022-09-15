@@ -15,7 +15,11 @@
 }
 
 .bgDarkGreenColor {
-    background: #A9BF99;
+    background-color: #A9BF99;
+}
+
+.bgDarkGreenColor:hover {
+    background-color: #E0F2C4;
 }
 
 .beigeColor {

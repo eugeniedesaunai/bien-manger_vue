@@ -4,8 +4,8 @@
 <article>
      <IngredientSelect  v-for="(ingredient, i) in newIngredients" :key="i"  class="taille marginForm" v-model:ingredientRecette="newIngredients[i]"></IngredientSelect>  
 </article>
-    <a @click="addFormNewIngredient" class="btn-floating btn-large waves-effect waves-light bgDarkGreenColor"><i class="material-icons">add</i></a>
-    <input class="buttonForm greenColor textUppercase" @click="addIngredient"  type="submit" value="envoyer" href="">
+    <a @click="addFormNewIngredient" class="btn-floating btn-large waves-effect waves-light bgDarkGreenColor marginButton"><i class="material-icons">add</i></a>
+    <input class="buttonForm greenColor textUppercase marginButton" @click="addIngredient"  type="submit" value="envoyer" href="">
 </section>
 </template>
 <script>

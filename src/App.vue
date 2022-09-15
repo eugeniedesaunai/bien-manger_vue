@@ -42,7 +42,7 @@ body {
 .buttonForm {
   margin: 0;
   border-radius: 1rem;
-  width: 25vw;
+  width: 30vw;
   height: 5vh;
   white-space: normal;
   background-color: rgba(29, 40, 75, 0.9);
@@ -50,6 +50,10 @@ body {
 
 .marginForm {
   margin: 2rem;
+}
+
+.marginButton {
+  margin: 1rem;
 }
 
 .backgroundStatics {
