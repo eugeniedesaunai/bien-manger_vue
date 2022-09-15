@@ -93,4 +93,40 @@ body {
     transform: translate(5%, 0)
   }
 }
+
+.absolute {
+  position: absolute;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.relative {
+  position: relative;
+}
+
+.textCenter {
+  text-align: center;
+}
+
+.textUppercase {
+  text-transform: uppercase;
+}
+
+.flex {
+  display: flex;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.spaceAround {
+  justify-content: space-around;
+}
+
+.spaceBetween {
+  justify-content: space-between;
+}
 </style>
