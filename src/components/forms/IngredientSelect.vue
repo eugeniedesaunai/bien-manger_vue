@@ -7,7 +7,7 @@
         <label for="">Ajouter un nouvel Ingrédient: </label>
         <input v-model="newIngredient" type="text" name="" id="">
         <p v-if="this.alreadyExists=== false"> L'ingrédient existe déjà </p>
-        <input @click="comparisonIngredient" type="submit" value="ajouter à la liste">
+        <input class="btn waves-effect waves-light" @click="comparisonIngredient" type="submit" value="ajouter à la liste">
         <br>
         <label for="">Quantité :</label>
         <input type="text" name="quantité" id="" :value="ingredientRecette.quantity" @input="setQuantity($event.target.value)">

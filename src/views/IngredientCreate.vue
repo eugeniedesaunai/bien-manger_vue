@@ -1,10 +1,10 @@
 <template lang="">
 <NavBar class="fixed"></NavBar>
-<div class="flex column widthForm alignCenter spaceAround">
+<article class="flex column widthForm alignCenter spaceAround">
     <IngredientSelect  v-for="(ingredient, i) in newIngredients" :key="i"  class="taille" v-model:ingredientRecette="newIngredients[i]"></IngredientSelect>  
-    <input @click="addFormNewIngredient"  type="button" value="+">
-    <input @click="addIngredient"  type="submit" value="envoyer">
-</div>
+    <a @click="addFormNewIngredient" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+    <input class="btn waves-effect waves-light" @click="addIngredient"  type="submit" value="envoyer">
+</article>
 </template>
 <script>
 
@@ -32,8 +32,10 @@ export default {
             this.newIngredients.push({ ...this.ingredientRecette })
         },
         addIngredient() {
+            for (let i = 0; i < this.newIngredients.length; i++) {
+                this.$store.dispatch("ingredient/addNewQuantity", this.newIngredients[i])
 
-            this.$store.dispatch("ingredient/addNewQuantity", this.ingredientRecette)
+            }
             this.redirect()
         },
     },
@@ -47,5 +49,11 @@ export default {
 
 .fixed {
     position: fixed;
+}
+
+.note {
+    background-color: bisque;
+    width: 30vw;
+    height: 50vh;
 }
 </style>

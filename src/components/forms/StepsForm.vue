@@ -3,9 +3,9 @@
         <label for="">Etape n° : </label>
         <input type="number" name="" id="" :value="stepsRecipes.stepNumber" @input="setStepNumber($event.target.value)" >
         <label for=""> Nom de l'Etape:</label>
-        <input type="text" name="" id="" :value="stepsRecipes.name" @input="setName($event.target.value)">
+        <input  type="text" name="" id="" :value="stepsRecipes.name" @input="setName($event.target.value)">
         <label for=""> Description de l'Etape:</label>
-     <textarea name="" id="" cols="10" rows="10" :value="stepsRecipes.description" @input="setDescription($event.target.value)"></textarea>
+     <textarea  class="materialize-textarea" name="" id="" cols="10" rows="10" :value="stepsRecipes.description" @input="setDescription($event.target.value)"></textarea>
     </div>
 </template>
 <script>

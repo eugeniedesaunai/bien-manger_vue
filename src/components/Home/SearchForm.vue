@@ -9,7 +9,7 @@
         <input  type="search" name="nom_ingredient" id="">
 
         <label class="blueColor" for="Saison"> Saisons :</label>
-        <div class="input-field col s12">
+        <div  class="input-field col s12" >
              <select>
                 <option value="" disabled selected>Choisissez une saison</option>
                 <option value="1">Printemps</option>
@@ -18,7 +18,7 @@
                 <option value="4">Hiver</option>
         </select>      
   </div>
-  <input type="submit" name="Rechercher" id="">
+  <input type="submit" class="buttonSaison greenColor textUppercase" name="Rechercher" id="">
     </article>
 </template>
 <script>
@@ -36,8 +36,18 @@ select {
     height: 2rem;
 }
 
-.formSearch {
+.buttonSaison {
+    top: 78%;
+    left: 20%;
+    margin: 0;
+    border-radius: 1rem;
+    width: 60vw;
+    height: 8vh;
+    white-space: normal;
+    background-color: rgba(29, 40, 75, 0.7);
+}
 
+.formSearch {
     display: flex;
     flex-direction: column;
     justify-content: center;
