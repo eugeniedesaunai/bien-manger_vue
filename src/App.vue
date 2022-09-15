@@ -11,13 +11,11 @@
 
 
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Poppins', Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
   width: 100vw;
-  height: 100vh;
-
 }
 
 body {
@@ -28,9 +26,31 @@ body {
 
 .widthForm {
   margin: auto;
-  width: 35%;
+  width: 40vh;
 }
 
+.buttonHome {
+  margin: 0;
+  border-radius: 1rem;
+  width: 60vw;
+  height: 8vh;
+  white-space: normal;
+  background-color: rgba(29, 40, 75, 0.7);
+}
+
+
+.buttonForm {
+  margin: 0;
+  border-radius: 1rem;
+  width: 25vw;
+  height: 5vh;
+  white-space: normal;
+  background-color: rgba(29, 40, 75, 0.9);
+}
+
+.marginForm {
+  margin: 2rem;
+}
 
 .backgroundStatics {
   position: fixed;
@@ -92,41 +112,5 @@ body {
   100% {
     transform: translate(5%, 0)
   }
-}
-
-.absolute {
-  position: absolute;
-}
-
-.fixed {
-  position: fixed;
-}
-
-.relative {
-  position: relative;
-}
-
-.textCenter {
-  text-align: center;
-}
-
-.textUppercase {
-  text-transform: uppercase;
-}
-
-.flex {
-  display: flex;
-}
-
-.column {
-  flex-direction: column;
-}
-
-.spaceAround {
-  justify-content: space-around;
-}
-
-.spaceBetween {
-  justify-content: space-between;
 }
 </style>

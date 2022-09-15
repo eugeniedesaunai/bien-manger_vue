@@ -1,95 +1,90 @@
 <template>
-    <div  v-if="getWindowWidth > 768" class="carousel">
-        <a class="carousel-item flexWrap" href="#1!"><MiniRecipe v-for="i in 2" :key="i"></MiniRecipe></a>
-        <a class="carousel-item flexWrap" href="#2!"><MiniRecipe v-for="i in 2" :key="i"></MiniRecipe></a>
-        <a class="carousel-item flexWrap" href="#3!"><MiniRecipe v-for="i in 2" :key="i"></MiniRecipe></a>
-        <a class="carousel-item flexWrap" href="#4!"><MiniRecipe v-for="i in 2" :key="i"></MiniRecipe></a>
-    </div>
-    <div v-else class="carousel">
-        <a class="carousel-item flexWrap" href="#1!"><MiniRecipe :key="1"></MiniRecipe></a>
-        <a class="carousel-item flexWrap" href="#2!"><MiniRecipe :key="1"></MiniRecipe></a>
-        <a class="carousel-item flexWrap" href="#3!"><MiniRecipe :key="1"></MiniRecipe></a>
-        <a class="carousel-item flexWrap" href="#4!"><MiniRecipe :key="1"></MiniRecipe></a>
-    </div>
-    <p @click="$store.getters['recipe/getRecipePerSeason'](seasonId)">{{seasonId}}</p>
+    <Carousel :settings="settings" :breakpoints="breakpoints" v-if="getRecipes.length!==0">
+    <Slide v-for='recipe in getRecipes' :key='recipe'>
+        <div class="carousel__item">
+            <MiniRecipe :recipe='recipe'></MiniRecipe>
+        </div>
+        
+    </Slide>
+    <template v-slot:addons>
+        <Navigation />
+    </template>
+    </Carousel>
 </template>
 
     <script>
-    import MiniRecipe from '@/components/MiniRecipe.vue';
+    import MiniRecipe from '@/components/SearchBySeason/MiniRecipeSeason.vue';
+    import 'vue3-carousel/dist/carousel.css';
+    import { Carousel, Slide,Navigation} from 'vue3-carousel';
         export default {
             name: 'RecipeCarousel',
             data() {
                 return {
-                    windowWidth: window.innerHeight,
-                }
+                    settings: {
+                        itemsToShow: 1,
+                        snapAlign: 'center',
+                    },
+                    breakpoints: {
+                        // 700px and up
+                        700: {
+                            itemsToShow: 3.5,
+                            snapAlign: 'center',
+                        },
+                        1024: {
+                            itemsToShow: 5,
+                            snapAlign: 'start',
+                        },
+                    },
+                };
             },
             props: {
                 seasonId: String,
             },
-            components: { MiniRecipe },
+            components: {   
+                            MiniRecipe,
+                            Carousel,
+                            Slide, 
+                            Navigation,
+                            
+                        },
             computed: {
-                getWindowWidth(){
-                    return  window.innerWidth; //this.windowWidth;  
+                getRecipes(){
+                    return this.$store.getters['recipe/getRecipePerSeason'](this.seasonId)
                 }
             },
             created() {
                 this.$store.dispatch('recipe/checkRecipe');
-                //this.$store.dispatch('ingredient/checkIngredient');
             },
         }
     </script>
- <style scoped>
- .carousel{
-     margin:auto;
-     width:100%;
-    text-align:center;
-    margin-top:5vh;
-     
- }
+ <style >
 
- .carousel-item{
-     left:auto;
-     width:auto;
-     height:80vh;
-    }
-
-    .imgMonth{
-    margin-bottom:20vh;
-    }
-
- @media(min-width: 768px) {
-     .carousel-item{
-     left:auto;
-     width:auto;
-     height:120vh;
-    }
-
-    .imgMonth{
-    margin-bottom:20vh;
-    }
- }
-
- @media(min-width: 1280px) {
-     
-     .carousel-item{
-     left:auto;
-     width:auto;
-     height:100vh;
-    }
-
-    .imgMonth{
-    margin-bottom:10vh;
-    }
- }
-
-
-
- .flexWrap{
-     flex-wrap:wrap;
- }
-
-.flex p{
-    width:100%
+.carousel{
+    width:90%;
+    margin:auto;
+}
+.carousel__item {
+	min-height: 200px;
+  width: 100%;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+.carousel__slide {
+	padding: 10px;
+}
+
+.carousel__prev,
+.carousel__next {
+	box-sizing: content-box;
+	border: 5px solid white;
+    transform: translate(0);
+}
+
+.carousel__prev--in-active,
+.carousel__next--in-active {
+  display: none;
+}
  </style>
