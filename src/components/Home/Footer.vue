@@ -1,5 +1,5 @@
 <template lang="">
-    <div class="bgGreyColor taille textCenter">
+    <div class="bgGreyColor taille textCenter flex column end">
         <p>Concocté avec ♥ par Cuisisaison</p>
         <p>Tous droits réservés Marmiton.org - 1872-2022</p>
         <p>Recrutement ● Mentions légales ● Conditions Générales d'Utilisation ● Contact ● FAQ ● Politique de protection des données personnelles ● Paramétrer les cookies ● Foire aux questions - Vos choix concernant l'utilisation de cookies</p>
@@ -24,7 +24,7 @@ div {
 @media(min-width: 768px) {
     div {
         width: 100vw;
-        height: 12vh;
+        height: 20vh;
     }
 }
 </style>
