@@ -30,7 +30,6 @@ body {
 }
 
 .buttonHome {
-  margin: 0;
   border-radius: 1rem;
   width: 60vw;
   height: 8vh;
@@ -40,7 +39,6 @@ body {
 
 
 .buttonForm {
-  margin: 0;
   border-radius: 1rem;
   width: 30vw;
   height: 5vh;

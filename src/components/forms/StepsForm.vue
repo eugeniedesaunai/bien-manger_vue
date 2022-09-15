@@ -1,7 +1,7 @@
 <template lang="">
     <div>        
         <label for="">Etape n° : </label>
-        <input type="number" name="" id="" :value="stepsRecipes.stepNumber" @input="setStepNumber($event.target.value)" >
+        <input type="number" name="" id="" min="1" :value="stepsRecipes.stepNumber" @input="setStepNumber($event.target.value)" >
         <label for=""> Nom de l'Etape:</label>
         <input  type="text" name="" id="" :value="stepsRecipes.name" @input="setName($event.target.value)">
         <label for=""> Description de l'Etape:</label>

@@ -1,14 +1,14 @@
 <template lang="">
     <article class="formSearch">
-        <h2>Chercher une recette :</h2>
+        <h2 class="titleFont textCenter widthTitle">Chercher une recette :</h2>
 
+        <input  type="search" name="nom_recette" id=""> 
         <label class="blueColor" for="Nom de la Recette"> Nom de la Recette: </label>
-        <input  type="search" name="nom_recette" id="">
-
+       
+        <input  type="search" name="nom_ingredient" id=""> 
         <label class="blueColor" for="Nom de la Recette">Ingredient: </label>
-        <input  type="search" name="nom_ingredient" id="">
+
         <SelectForm @selectOption="get_season" content="Saison : " fname="season" func="checkSeason"></SelectForm>
-        <label class="blueColor" for="Saison"> Saisons :</label>
         <div  class="input-field col s12" >
         <select>
                 <option value="" disabled selected>Choisissez une saison</option>
@@ -18,7 +18,7 @@
                 <option value="4">Hiver</option>
         </select>      
   </div>
-  <input type="submit" class="buttonForm greenColor textUppercase" name="Rechercher" id="">
+  <input type="submit" class="buttonForm greenColor textUppercase marginButton " value="rechercher" id="">
     </article>
 </template>
 <script>
@@ -33,7 +33,13 @@ label {
 
 select {
     display: block;
-    height: 2rem;
+    height: 3rem;
+    border-radius: 2rem;
+    align-items: center;
+}
+
+select:focus {
+    border-color: #A9BF99;
 }
 
 
@@ -43,6 +49,7 @@ select {
     justify-content: center;
     align-items: center;
     width: 100vw;
+    height: 100vh;
     background-color: #A9BF99;
     padding-top: 1rem;
     padding-bottom: 3rem;
@@ -50,8 +57,9 @@ select {
     margin-bottom: 6rem;
 }
 
-h2 {
-    font-size: 2rem;
+.buttonForm {
+    width: 45vw;
+    height: 8vh;
 }
 
 
@@ -65,14 +73,14 @@ input[type=search]:not(.browser-default) {
 @media(min-width: 768px) {
     .formSearch {
         width: 100vw;
-        height: 45vh;
+        height: 50vh;
     }
 }
 
 @media(min-width: 1280px) {
     .formSearch {
         width: 100vw;
-        height: 50vh;
+        height: 60vh;
     }
 }
 </style>
