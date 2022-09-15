@@ -43,7 +43,5 @@ export default {
 }
 </script>
 <style scoped>
-.taille {
-    width: 30vw;
-}
+
 </style>

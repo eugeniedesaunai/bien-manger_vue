@@ -26,7 +26,7 @@ body {
 
 .widthForm {
   margin: auto;
-  width: 35%;
+  width: 40vh;
 }
 
 .buttonHome {
@@ -42,14 +42,14 @@ body {
 .buttonForm {
   margin: 0;
   border-radius: 1rem;
-  width: 30vw;
+  width: 25vw;
   height: 5vh;
   white-space: normal;
   background-color: rgba(29, 40, 75, 0.9);
 }
 
 .marginForm {
-  padding: 2rem;
+  margin: 2rem;
 }
 
 .backgroundStatics {
