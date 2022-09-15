@@ -1,11 +1,11 @@
 <template lang="">
     <NavBar class="navBar"></NavBar>
-    <section class="flex ">
+    <section class="flex">
     <article>
-        <div class="imgRecipe"></div> 
+        <div class="imgRecipe" :style="cssProps"></div> 
     </article>
     <article class="flex column spaceAround paddingRecipe">
-         <h1>Nom recette </h1>
+         <h1>{{ getRecipes?.Name }} </h1>
          <div class="flex spaceAround">
              <ul>
             <li>Saison</li>
@@ -20,15 +20,13 @@
             <li>ingredient</li>
            </ul>
          </div>
-        
-           <ul>
-            <li>step1 :  Be a nyan cat, feel great about it, be annoying 24/7 poop rainbows in litter box all day love blinks 
-        and purr purr purr purr yawn proudly present butt to human. Bird bird bird bird bird bird human why 
-        take bird out i could have eaten that snuggles up to shoulders?</li>
-            <li>step2 :  Be a nyan cat, feel great about it, be annoying 24/7 poop rainbows in litter box all day love blinks 
-        and purr purr purr purr yawn proudly present butt to human. Bird bird bird bird bird bird human why 
-        take bird out i could have eaten that snuggles up to shoulders?</li>
-           </ul>
+        <p>{{getRecipes?.Description}}</p>
+           <ul v-for="steps in getRecipes?.steps" :key='steps'>
+            <li>
+                {{steps?.NoEtape}}.{{steps?.Name}}:<br>
+                {{steps?.Description}}
+            </li>
+            </ul>
     </article>
     </section>
 
@@ -41,10 +39,28 @@ export default {
     data() {
         return {
             result: '',
+            id: this.$route.params.id,
+            
+
         }
     },
     components: {
         NavBar,
+    },
+    computed: {
+        getRecipes(){
+            return this.$store.getters['recipe/getRecipePerId'](this.id);
+        },
+        cssProps() {
+            let r = this.$store.getters['recipe/getRecipePerId'](this.id);
+            let css = '';
+            if (r && r.images && r.images.length > 0) { css= "background-image: url('" + r?.images[0]?.url + "')" }
+            return css
+        }
+    },
+    created() {
+        this.$store.dispatch('recipe/checkRecipe');
+        this.$store.dispatch('ingredient/checkIngredient');
     },
 }
 </script>
@@ -59,7 +75,7 @@ export default {
     height: 100%;
     background-size: cover;
     background-position: center;
-    background-image: url(../assets/Home/farine.jpg);
+    background-image: var(--img-recipe);
 }
 
 section {
