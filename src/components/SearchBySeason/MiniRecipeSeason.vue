@@ -1,25 +1,37 @@
 <template lang="">
-            <div class="imgMonth">
-                <p> Be a nyan cat.</p>
+            <div class="imgMonth" :style='cssProps'>
+                <a :href="'/recipe/' + recipe.id">{{recipe.name}}</a>
             </div>
 </template>
 <script>
 export default {
     name: "MiniRecipe",
+
+    props:['recipe'],
+    computed: {
+        cssProps() {
+            return {
+                '--img-recipe': "url(" + this.recipe.img[0].url + ")",
+            }
+        }
+  }
+
 }
+
 </script>
 <style scoped>
+
 .imgMonth {
     width: 60vw;
     height: 60vh;
-    background-image: url(@/assets/Home/epice.jpg);
+    background-image: var(--img-recipe);
     background-size: cover;
     background-position: center;
     position: relative;
     margin-bottom: 6rem;
 }
 
-p {
+a {
     width: 60vw;
     height: 20vh;
     background-color: #E0F2C4;
@@ -40,7 +52,7 @@ p {
         height: 30vw;
     }
 
-    p {
+    a {
         width: 20vw;
         height: 8vh;
     }
@@ -53,7 +65,7 @@ p {
         height: 40vh;
     }
 
-    p {
+    a {
         width: 20vw;
         height: 12vh;
     }

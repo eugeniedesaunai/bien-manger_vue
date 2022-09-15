@@ -13,7 +13,7 @@
 </template>
 
     <script>
-    import MiniRecipe from '@/components/MiniRecipe.vue';
+    import MiniRecipe from '@/components/SearchBySeason/MiniRecipeSeason.vue';
     import 'vue3-carousel/dist/carousel.css';
     import { Carousel, Slide,Navigation} from 'vue3-carousel';
         export default {
