@@ -1,12 +1,16 @@
+
 <template lang="">
-            <div class="imgMonth">
-                <p> Be a nyan cat.</p>
-            </div>
+    <div class="imgMonth">
+       <p> Be a nyan cat.</p>
+   </div>
 </template>
 <script>
 export default {
     name: "MiniRecipe",
+
+
 }
+
 </script>
 <style scoped>
 .imgMonth {

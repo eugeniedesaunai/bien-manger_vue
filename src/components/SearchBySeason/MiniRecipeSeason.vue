@@ -1,26 +1,22 @@
 <template lang="">
-            <div class="imgMonth" :style='cssProps'>
-                <a :href="'/recipe/' + recipe.id">{{recipe.name}}</a>
-            </div>
+    <div class="imgMonth" :style='cssProps'>
+         <a :href="'/recipe/' + recipe.id">{{recipe.name}}</a>
+     </div>
 </template>
 <script>
 export default {
     name: "MiniRecipe",
-
-    props:['recipe'],
+    props: ['recipe'],
     computed: {
         cssProps() {
             return {
                 '--img-recipe': "url(" + this.recipe.img[0].url + ")",
             }
         }
-  }
-
+    }
 }
-
 </script>
 <style scoped>
-
 .imgMonth {
     width: 60vw;
     height: 60vh;
