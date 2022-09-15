@@ -11,7 +11,7 @@
   </nav>
   <ul class="sidenav" id="mobile-demo">
     <li><a href="/season/search">Saison</a></li>
-    <li><a href="">Formulaire</a></li>
+    <li><a href="/recipe/create">Formulaire</a></li>
   </ul>
 </template>
 <script>
