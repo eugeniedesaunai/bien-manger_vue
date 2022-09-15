@@ -22,8 +22,15 @@ export default {
     },
     data() {
         return {
+<<<<<<< HEAD
+            newRecipe: JSON.parse(localStorage.getItem('recipe')),
+            newStep: [{}],
+            stepsRecipes: { name: undefined, stepNumber: 0, description: undefined },
+            ingredientRecette: JSON.parse(localStorage.getItem('ingredients'))
+=======
             newStep: [{ name: undefined, stepNumber: 0, description: undefined }],
             stepsRecipes: { name: undefined, stepNumber: 0, description: undefined }
+>>>>>>> 3f2f96bdea9fcd6b5637b5cd5ace359111b43d5d
         }
     },
     methods: {
@@ -31,9 +38,17 @@ export default {
             this.newStep.push({ ...this.stepsRecipes })
         },
         addSteps() {
+<<<<<<< HEAD
+            console.log(this.stepsRecipes)
+            this.newRecipe.steps = this.stepsRecipes;
+            console.log(this.newRecipe);
+            this.$store.dispatch("recipe/addRecipes", this.newRecipe);
+            this.$store.dispatch("recipe/addSteps", this.stepsRecipes);
+=======
             for (let i = 0; i < this.newStep.length; i++) {
                 this.$store.dispatch("recipe/addSteps", this.newStep[i])
             }
+>>>>>>> 3f2f96bdea9fcd6b5637b5cd5ace359111b43d5d
 
         },
     }

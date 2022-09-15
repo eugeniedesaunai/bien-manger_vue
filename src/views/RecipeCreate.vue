@@ -1,39 +1,51 @@
 <template>
     <NavBar :isHomePage="false"></NavBar>
     <div class="container">
+<<<<<<< HEAD
+        <form class="flex column widthForm alignCenter spaceAround" action="" onsubmit="return false;">
+            <InputTextForm @selectInput="get_input" content="Nom de la recette : " fname="recipe" />
+            <TextAreaForm @selectTextarea="getTextarea" content="Description de la recette :" fname="description" />
+=======
         <form class="flex column widthForm spaceAround form" action="" onsubmit="return false;">
             <InputText @selectInput="get_input" content="Nom de la recette : " fname="recipe" />
+>>>>>>> 3f2f96bdea9fcd6b5637b5cd5ace359111b43d5d
             <SelectForm @selectOption="get_season" content="Saison : " fname="season" func="checkSeason"></SelectForm>
-            <InputText @selectInput="get_input" content="Nom de l'image : " fname="image" />
+            <ImageForm @selectInput="get_input" content="Image : " fname="image" />
             <SelectForm @selectOption="get_meal" content="Plat : " fname="meal" func="checkMeal"></SelectForm>
-            <Button value="Suivant" @someclick="Next" @click="redirect" />
+            <ButtonForm value="Suivant" @someclick="Next" @click="next" />
         </form>
     </div>
 </template>
 <script>
-import InputText from '@/components/forms/InputForm.vue';
-import Button from '@/components/forms/ButtonForm.vue';
+import InputTextForm from '@/components/forms/InputForm.vue';
+import ButtonForm from '@/components/forms/ButtonForm.vue';
 import SelectForm from '@/components/forms/SelectForm.vue';
+import TextAreaForm from '@/components/forms/TextAreaForm.vue';
 import NavBar from '@/components/NavBar.vue';
+import ImageForm from '@/components/forms/ImageForm.vue';
 export default {
 
     name: 'RecipeCreate',
     data() {
         return {
-            newRecipe: { name: '', season: '', image: '', meal: '' },
-            fields: ['recipe', 'season', 'image', 'meal'],
+            newRecipe: { name: '', description: '', image: [], steps: [], ingredients: [], season: '' },
+            fields: ['recipe', 'description', 'season', 'image', 'meal'],
+            test: {},
             Valid: [],
             recipe: '',
+            description: '',
             image: '',
             season: '',
             meal: '',
         }
     },
     components: {
-        InputText,
-        Button,
+        InputTextForm,
+        ButtonForm,
         NavBar,
         SelectForm,
+        TextAreaForm,
+        ImageForm
     },
     methods: {
         redirect() {
@@ -41,14 +53,18 @@ export default {
         },
         //Action
         Next() {
+            console.log(this.season);
             this.Valid = [];
             this.check_values();
             if (this.Valid.length == this.fields.length) {
                 this.newRecipe.name = this.recipe;
+                this.newRecipe.description = this.description;
                 this.newRecipe.season = this.season;
                 this.newRecipe.meal = this.meal;
-                this.newRecipe.image = this.image;
-                alert(Object.values(this.newRecipe));
+                //this.newRecipe.image = this.image;
+
+                localStorage.setItem('recipe', JSON.stringify(this.newRecipe));
+                //this.redirect();
             }
         },
         //Recupération de la saison
@@ -67,11 +83,20 @@ export default {
                     if (inputs[index].id == 'recipe') {
                         this.recipe = value;
                     }
+                }
+                if (inputs[index].files == value) {
                     if (inputs[index].id == 'image') {
-                        this.image = value;
+                        for (let file of value) {
+                            this.image = file.name;
+                        }
                     }
                 }
             }
+        },
+        //Récupération du textarea
+        getTextarea(value) {
+
+            this.description = value;
         },
         //Vérification des valeurs
         check_values() {

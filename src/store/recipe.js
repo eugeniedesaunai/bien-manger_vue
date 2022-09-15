@@ -68,6 +68,14 @@ export default {
                 ]
             }
             await api.create({ resource: 'Etape', data: objet })
+        },
+        async addRecipes(context, { name, description, season }) {
+            let object = {
+                records: [
+                    { fields: { Name: name, Description: description, Saison: [season] } }
+                ]
+            }
+            await api.create({ resource: 'Recette', data: object })
         }
     }
 

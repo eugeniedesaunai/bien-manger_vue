@@ -1,10 +1,13 @@
 <template>
     <div>
-        <input type="button" class="button" @click="click" v-model="value" />
+        <input type="button" class="button" @click="click" :value=value />
     </div>
 </template>
 <script>
 export default {
+    props: {
+        value: String,
+    },
     methods: {
         click() {
             this.$emit('someclick');

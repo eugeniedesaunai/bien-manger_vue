@@ -21,8 +21,14 @@ export default {
     },
     data() {
         return {
+<<<<<<< HEAD
+            newRecipe: JSON.parse(localStorage.getItem('recipe')),
+            newIngredients: [{}],
+            ingredientRecette: { ingredient: undefined, quantity: 0, unit: undefined }
+=======
             ingredientRecette: { ingredient: undefined, quantity: 0, unit: undefined },
             newIngredients: [{ ingredient: undefined, quantity: 0, unit: undefined }],
+>>>>>>> 3f2f96bdea9fcd6b5637b5cd5ace359111b43d5d
         }
     },
     methods: {
@@ -30,12 +36,23 @@ export default {
             this.$router.push({ name: 'stepsCreate' })
         },
         addFormNewIngredient: function () {
+<<<<<<< HEAD
+            this.newIngredients.push({});
+        },
+        addIngredient() {
+            this.newRecipe.ingredients = this.ingredientRecette;
+            console.log(this.ingredientRecette);
+            localStorage.setItem('recipe', JSON.stringify(this.newRecipe));
+            localStorage.setItem('ingredients', JSON.stringify(this.ingredientRecette));
+            this.$store.dispatch("ingredient/addNewQuantity", this.ingredientRecette)
+=======
             this.newIngredients.push({ ...this.ingredientRecette })
         },
         addIngredient() {
             for (let i = 0; i < this.newIngredients.length; i++) {
                 this.$store.dispatch("ingredient/addNewQuantity", this.newIngredients[i])
             }
+>>>>>>> 3f2f96bdea9fcd6b5637b5cd5ace359111b43d5d
             this.redirect()
         },
     },

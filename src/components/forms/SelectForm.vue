@@ -3,7 +3,7 @@
         <label class="label" :for=fname>{{content}}</label>
         <select class="validate" required="" aria-required="true" v-model="selected" @change="SelectOption($event)"
             :name=fname :id=fname>
-            <option v-for="(item) in name" :value="item.name" :key="item.id">{{ item.name
+            <option v-for="(item) in name" :value="item.id" :id="item.id" :key="item.id">{{ item.name
             }}
             </option>
         </select>
@@ -19,6 +19,7 @@ export default {
     methods: {
         // Récuparation de la selection
         SelectOption(event) {
+            console.log(event.target.value);
             this.$emit('selectOption', event.target.value)
         }
     },
