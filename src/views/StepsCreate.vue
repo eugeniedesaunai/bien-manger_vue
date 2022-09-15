@@ -1,16 +1,11 @@
 <template lang="">   
 <NavBar></NavBar>
-<section class="flex">
-    <form action=""> 
-        <StepsForm class="taille"  v-for="(step,i) in newStep" :key="i" v-model:stepsRecipes="newStep[i]"></StepsForm>
-        <input @click="addNewFormStep"  type="button" value="ajouter une étape">
-        <input type="submit" value="" @click="addSteps">
-    </form>
-    <article class="note">
-        <ul>
-            <li v-for="(step, i) in newStep" :key="i">{{newStep.name}} </li>
-        </ul>
+<section class="flex column widthForm alignCenter spaceAround">
+    <article>
+        <StepsForm class="stepForm  marginForm"  v-for="(step,i) in newStep" :key="i" v-model:stepsRecipes="newStep[i]"></StepsForm>
     </article>
+    <a class="btn-floating btn-large waves-effect waves-light bgDarkGreenColor"  @click="addNewFormStep"  ><i class="material-icons">add</i></a>
+    <input class="buttonForm greenColor textUppercase" type="submit" value="envoyer" @click="addSteps">
 </section>
     
    
@@ -33,23 +28,19 @@ export default {
     },
     methods: {
         addNewFormStep: function () {
-            this.newStep.push({})
+            this.newStep.push({ ...this.stepsRecipes })
         },
         addSteps() {
-            console.log(this.stepsRecipes)
-            this.$store.dispatch("recipe/addSteps", this.stepsRecipes)
+            for (let i = 0; i < this.newStep.length; i++) {
+                this.$store.dispatch("recipe/addSteps", this.newStep[i])
+            }
+
         },
     }
 }
 </script>
 <style scoped>
-.taille {
-    width: 30vw;
-}
-
-.note {
-    background-color: bisque;
-    width: 30vw;
-    height: 50vh;
+.stepForm {
+    width: 20vw;
 }
 </style>

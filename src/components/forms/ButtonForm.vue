@@ -12,7 +12,7 @@ export default {
     }
 }
 </script>
-<style>
+<style scoped>
 .button {
     background-color: var(--color-gray);
     display: block;

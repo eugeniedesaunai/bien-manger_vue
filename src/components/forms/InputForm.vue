@@ -1,5 +1,5 @@
 <template>
-    <div class="input-field col s12">
+    <div>
         <label :for=fname>{{ content }}</label>
         <input class="validate" v-model="value" @change="SelectInput" type="text" :id=fname :name=fname required=""
             aria-required="true">

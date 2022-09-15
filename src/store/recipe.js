@@ -62,7 +62,10 @@ export default {
             let recette_id = "recM9wxxQYN17fDlY"
             let objet = {
                 records: [
-                    { fields: { Name: name, NoEtape: Number(stepNumber), Description: description, Recette: [recette_id] } }]
+                    {
+                        fields: { Name: name, NoEtape: Number(stepNumber), Description: description, Recette: [recette_id] }
+                    }
+                ]
             }
             await api.create({ resource: 'Etape', data: objet })
         }
