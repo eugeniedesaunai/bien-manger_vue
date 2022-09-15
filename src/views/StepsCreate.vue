@@ -1,10 +1,18 @@
 <template lang="">   
 <NavBar></NavBar>
-    <section class="flex column widthForm alignCenter spaceAround">
-    <StepsForm class="taille"  v-for="i in newStep" :key="i" v-model:stepsRecipes="stepsRecipes"></StepsForm>
-    <input @click="addNewFormStep"  type="button" value="+">
-    <input type="submit" value="" @click="addSteps">
-    </section>
+<section class="flex">
+    <form action=""> 
+        <StepsForm class="taille"  v-for="(step,i) in newStep" :key="i" v-model:stepsRecipes="newStep[i]"></StepsForm>
+        <input @click="addNewFormStep"  type="button" value="ajouter une étape">
+        <input type="submit" value="" @click="addSteps">
+    </form>
+    <article class="note">
+        <ul>
+            <li v-for="(step, i) in newStep" :key="i">{{newStep.name}} </li>
+        </ul>
+    </article>
+</section>
+    
    
 </template>
 <script>
@@ -19,7 +27,7 @@ export default {
     },
     data() {
         return {
-            newStep: [{}],
+            newStep: [{ name: undefined, stepNumber: 0, description: undefined }],
             stepsRecipes: { name: undefined, stepNumber: 0, description: undefined }
         }
     },
@@ -37,5 +45,11 @@ export default {
 <style scoped>
 .taille {
     width: 30vw;
+}
+
+.note {
+    background-color: bisque;
+    width: 30vw;
+    height: 50vh;
 }
 </style>

@@ -1,5 +1,5 @@
 <template lang="">
-    <div>
+         <div>
         <label for="">Ingrédient: </label>
         <select  name="" id=""  :value="ingredientRecette.ingredient" @input="setIngredient($event.target.value)">
             <option v-for="item in ingredients" :value= "item.id" :key="item.id">{{item.name}}</option>
@@ -13,8 +13,8 @@
         <input type="text" name="quantité" id="" :value="ingredientRecette.quantity" @input="setQuantity($event.target.value)">
         <label for="">Unité :</label>
         <input type="text" name="unité" id="" :value="ingredientRecette.unit" @input="setUnit($event.target.value)">
-
     </div>
+   
 </template>
 <script>
 export default {
@@ -73,6 +73,8 @@ export default {
     },
 }
 </script>
-<style lang="">
-    
+<style scoped>
+.width {
+    width: 40%;
+}
 </style>
