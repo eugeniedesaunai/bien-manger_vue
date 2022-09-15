@@ -26,6 +26,12 @@
     color: #BF9E80;
 }
 
+
+
 .greyColor {
     color: #D9D3CC;
+}
+
+.bgGreyColor {
+    background-color: #D9D3CC;
 }

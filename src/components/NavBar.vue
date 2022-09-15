@@ -1,7 +1,7 @@
 <template lang="">
 <nav :class="className" >
     <div class="nav-wrapper">
-      <a href="/" class="brand-logo center texteColor">CuisiSaison</a>
+      <a href="" class="brand-logo center texteColor heightLogo"><img class="heightLogo marginLogo" src="@/assets/logo.png" alt=""></a>
      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="left  hide-on-med-and-down flexArround">
         <li ><a class="texteColor" href="/season/search">Saison</a></li>
@@ -31,6 +31,14 @@ export default {
 
 </script>
 <style scoped>
+.heightLogo {
+  height: 100%;
+}
+
+.marginLogo {
+  margin-top: 0.3rem;
+}
+
 .colorNavbar {
   background-color: #E0F2C4;
 }

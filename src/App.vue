@@ -1,8 +1,8 @@
 <template>
   <div class='backgroundStatics'></div>
+
   <router-view />
 </template>
-
 <style>
 :root {
   --body-bg: #D9D3CC;
