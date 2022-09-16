@@ -22,12 +22,14 @@ export default {
     },
     data() {
         return {
+            recipeId: '',
             newRecipe: JSON.parse(localStorage.getItem('recipe')),
-            ingredientRecette: JSON.parse(localStorage.getItem('ingredients')),
-            newStep: [{ name: undefined, stepNumber: 0, description: undefined }],
-            stepsRecipes: { name: undefined, stepNumber: 0, description: undefined }
-
+            newStep: [{ recette: undefined, name: undefined, stepNumber: 0, description: undefined }],
+            stepsRecipes: { recette: undefined, name: undefined, stepNumber: 0, description: undefined }
         }
+    },
+    created() {
+        this.$store.dispatch('recipe/checkRecipe');
     },
     methods: {
         addNewFormStep: function () {
@@ -36,15 +38,13 @@ export default {
         addSteps() {
             console.log(this.stepsRecipes)
             this.newRecipe.steps = this.stepsRecipes;
-            console.log(this.newRecipe);
-            this.$store.dispatch("recipe/addRecipes", this.newRecipe);
-            this.$store.dispatch("recipe/addSteps", this.stepsRecipes);
+            // this.$store.dispatch("recipe/addSteps", this.stepsRecipes);
 
             for (let i = 0; i < this.newStep.length; i++) {
+                this.recipeId = this.$store.getters['recipe/getRecipePerName'](this.newRecipe.name);
+                this.newStep[i].recette = this.recipeId.id;
                 this.$store.dispatch("recipe/addSteps", this.newStep[i])
             }
-
-
         },
     }
 }

@@ -23,13 +23,14 @@ export default {
     },
     data() {
         return {
-
+            recipeId: '',
             newRecipe: JSON.parse(localStorage.getItem('recipe')),
             ingredientRecette: { ingredient: undefined, quantity: 0, unit: undefined },
-            newIngredients: [{ ingredient: undefined, quantity: 0, unit: undefined }],
+            newIngredients: [{ recette: undefined, ingredient: undefined, quantity: 0, unit: undefined }],
         }
     },
     methods: {
+
         redirect() {
             this.$router.push({ name: 'stepsCreate' })
         },
@@ -37,18 +38,19 @@ export default {
             this.newIngredients.push({});
         },
         addIngredient() {
-            this.newRecipe.ingredients = this.ingredientRecette;
-            console.log(this.ingredientRecette);
-            localStorage.setItem('recipe', JSON.stringify(this.newRecipe));
-            localStorage.setItem('ingredients', JSON.stringify(this.ingredientRecette));
             this.$store.dispatch("ingredient/addNewQuantity", this.ingredientRecette)
             this.newIngredients.push({ ...this.ingredientRecette })
+
             for (let i = 0; i < this.newIngredients.length; i++) {
+                this.recipeId = this.$store.getters['recipe/getRecipePerName'](this.newRecipe.name);
+                this.newIngredients[i].recette = this.recipeId.id;
                 this.$store.dispatch("ingredient/addNewQuantity", this.newIngredients[i])
             }
             this.redirect()
-            this.newIngredients.push({ ...this.ingredientRecette })
         },
+    },
+    created() {
+        this.$store.dispatch('recipe/checkRecipe');
     },
 
 }
