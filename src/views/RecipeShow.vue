@@ -29,11 +29,11 @@
             </ul>
     </article>
     </section>
-
-          
+<HomeFooter></HomeFooter>
 </template>
 <script>
 import NavBar from '@/components/NavBar.vue';
+import HomeFooter from '@/components/Home/Footer.vue';
 export default {
     name: "RecipeShow",
     data() {
@@ -46,6 +46,7 @@ export default {
     },
     components: {
         NavBar,
+        HomeFooter
     },
     computed: {
         getRecipes() {

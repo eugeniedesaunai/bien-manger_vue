@@ -10,6 +10,7 @@
             <ButtonForm value="Suivant" @someclick="Next" @click="next" />
         </form>
     </div>
+    <HomeFooter></HomeFooter>
 </template>
 <script>
 import InputTextForm from '@/components/forms/InputForm.vue';
@@ -18,6 +19,7 @@ import SelectForm from '@/components/forms/SelectForm.vue';
 import TextAreaForm from '@/components/forms/TextAreaForm.vue';
 import NavBar from '@/components/NavBar.vue';
 import ImageForm from '@/components/forms/ImageForm.vue';
+import HomeFooter from '@/components/Home/Footer.vue';
 export default {
 
     name: 'RecipeCreate',
@@ -40,7 +42,8 @@ export default {
         NavBar,
         SelectForm,
         TextAreaForm,
-        ImageForm
+        ImageForm,
+        HomeFooter
     },
     methods: {
         redirect() {
