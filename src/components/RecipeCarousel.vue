@@ -61,6 +61,7 @@ export default {
 <style >
 .carousel {
     width: 90%;
+    height: ;
     margin: auto;
 }
 

@@ -22,7 +22,7 @@ export default {
 
 div {
     width: 100vw;
-    height: 40vh;
+    height: 30vh;
 }
 
 @media(min-width: 768px) {
