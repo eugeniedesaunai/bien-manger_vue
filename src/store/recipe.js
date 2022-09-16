@@ -44,14 +44,22 @@ export default {
             }
 
             // Défintiion des étapes
-            let steps = await api.find({ resource: 'Etape', query: '' });
+            let steps = await api.find({ resource: 'Etape', query: 'sort%5B0%5D%5Bfield%5D=NoEtape&sort%5B0%5D%5Bdirection%5D=asc' });
             ({ records } = steps)
             steps = records.map(record => { return { id: record.id, ...record.fields } })
             for (let r of recipes) {
                 r.steps = steps.filter(i => i?.Recette?.includes(r.id))
             }
+
+            //Définition du plats
+            let meal = await api.find({ resource: 'Plat', query: '' });
+            ({ records } = meal)
+            meal = records.map(record => { return { id: record.id, ...record.fields } })
+            for (let r of recipes) {
+                r.meal = meal.filter(i => i?.Recette?.includes(r.id))
+            }
+            console.log(recipes)
             state.recipes = recipes;
-            console.log(state.recipes);
         },
         setRecipesApi(state, data) {
             state.recipesApi = data;
@@ -59,7 +67,7 @@ export default {
     },
     actions: {
         async checkRecipe({ commit, state }) {
-            let result = await api.find({ resource: 'Recette', query: 'maxRecords=10' });
+            let result = await api.find({ resource: 'Recette', query: 'maxRecords=30' });
             commit('setRecipesApi', result);
             if (state.recipe != state.recipesApi) {
                 commit('fillRecipe');

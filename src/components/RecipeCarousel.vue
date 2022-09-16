@@ -1,8 +1,8 @@
 <template>
     <Carousel :settings="settings" :breakpoints="breakpoints" v-if="getRecipes.length!==0">
         <Slide v-for='recipe in getRecipes' :key='recipe'>
-            <div class="carousel__item">
-                <MiniRecipe :recipe='recipe'></MiniRecipe>
+            <div class="carousel__item ">
+                <MiniRecipeSeason :recipe='recipe'></MiniRecipeSeason>
             </div>
 
         </Slide>
@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import MiniRecipe from '@/components/SearchBySeason/MiniRecipeSeason.vue';
+import MiniRecipeSeason from '@/components/SearchBySeason/MiniRecipeSeason.vue';
 import 'vue3-carousel/dist/carousel.css';
 import { Carousel, Slide, Navigation } from 'vue3-carousel';
 export default {
@@ -23,15 +23,16 @@ export default {
             settings: {
                 itemsToShow: 1,
                 snapAlign: 'center',
+                mouseDrag: false,
             },
             breakpoints: {
                 // 700px and up
                 700: {
-                    itemsToShow: 3.5,
+                    itemsToShow: 2,
                     snapAlign: 'center',
                 },
                 1024: {
-                    itemsToShow: 5,
+                    itemsToShow: 3,
                     snapAlign: 'start',
                 },
             },
@@ -41,7 +42,7 @@ export default {
         seasonId: String,
     },
     components: {
-        MiniRecipe,
+        MiniRecipeSeason,
         Carousel,
         Slide,
         Navigation,
