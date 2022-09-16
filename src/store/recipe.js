@@ -23,24 +23,32 @@ export default {
     mutations: {
         async fillRecipe(state) {
             let { records } = state.recipesApi
+
+            // Décomposition des recettes.
             let recipes = records.map(record => { return { id: record.id, ...record.fields } })
+
+            // Génération des ingrédients sur les recettes.
             let ingredients = await api.find({ resource: 'Recette_has_Ingredient', query: '' });
             ({ records } = ingredients)
             ingredients = records.map(record => { return { id: record.id, ...record.fields } })
             for (let r of recipes) {
                 r.ingredients = ingredients.filter(i => i.Recette.includes(r.id))
             }
+
+            // Association des images aux recettes
             let images = await api.find({ resource: 'Image', query: '' });
             ({ records } = images)
             images = records.map(record => { return { id: record.id, ...record.fields } })
             for (let r of recipes) {
                 r.images = images.filter(i => i?.Recette?.includes(r.id))
             }
+
+            // Défintiion des étapes
             let steps = await api.find({ resource: 'Etape', query: '' });
             ({ records } = steps)
             steps = records.map(record => { return { id: record.id, ...record.fields } })
             for (let r of recipes) {
-                r.steps = steps.filter(i => i.Recette.includes(r.id))
+                r.steps = steps.filter(i => i?.Recette?.includes(r.id))
             }
             state.recipes = recipes;
             console.log(state.recipes);
