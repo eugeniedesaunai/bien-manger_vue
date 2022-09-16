@@ -61,7 +61,6 @@ export default {
             for (let r of recipes) {
                 r.meal = meal.filter(i => i?.Recette?.includes(r.id))
             }
-            console.log(recipes)
             state.recipes = recipes;
         },
         setRecipesApi(state, data) {
@@ -70,7 +69,7 @@ export default {
     },
     actions: {
         async checkRecipe({ commit, state }) {
-            let result = await api.find({ resource: 'Recette', query: 'maxRecords=30' });
+            let result = await api.find({ resource: 'Recette', query: 'maxRecords=50' });
             commit('setRecipesApi', result);
             if (state.recipe != state.recipesApi) {
                 commit('fillRecipe');

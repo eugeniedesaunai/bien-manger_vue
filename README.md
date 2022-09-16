@@ -1,5 +1,17 @@
 # bien-manger_vue
 
+# Installation
+Run npm install  
+Copy .env.sample file to .env file  
+Define the variables  
+.env : npm install dotenv  
+npm install vue3-carousel  
+
+## Use Case
+![alt text](./public/img/Use-Case_Bien-Manger-Vue.png)
+
+
+
 # Charte Graphique 
 ![alt text](./public/img/colors.png)
 #A9BF99  
@@ -8,9 +20,6 @@
 #BF9E80  
 #D9D3CC  
  
-## Use Case
-![alt text](./public/img/Use-Case_Bien-Manger-Vue.png)
-
 # Zoning
 
 ![alt text](./public/img/Zoning/accueil.png)
@@ -41,16 +50,7 @@ Vue Router
 Vuex
 
 
-# Installation
-Run npm install  
-Copy .env.sample file to .env file  
-Define the variables  
-.env : npm install dotenv  
-vue3-carousel  
-
 # Amélioration à effectuer
 Faire la barre de recherche sur la HomePage  
 Bouton envoyer du formulaire, renvoie sur la page de la recette qui vient d'être créer  
-Bouton précédent sur formulaire  
-Revoir pour les id Recette des étapes et des ingrédients  
-Revoir pour les recettes du mois  
+Bouton précédent sur formulaire 
