@@ -84,7 +84,8 @@ export default {
                 ]
             }
             await api.create({ resource: 'Recette', data: object })
-        }
+        },
+
     }
 
 }
