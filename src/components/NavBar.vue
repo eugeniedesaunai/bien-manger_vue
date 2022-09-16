@@ -1,11 +1,11 @@
 <template lang="">
 <nav :class="className" >
     <div class="nav-wrapper">
-      <a href="/" class="brand-logo center texteColor heightLogo"><img class="heightLogo marginLogo" src="@/assets/logo.png" alt=""></a>
+      <a href="/" class="brand-logo center texteColor heightLogo "><img class="heightLogo marginLogo" src="@/assets/logo.png" alt=""></a>
      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="left  hide-on-med-and-down flexArround">
-        <li ><a class="texteColor" href="/season/search">Saison</a></li>
-        <li><a class="texteColor" href="/recipe/create">Formulaire</a></li>
+        <li ><a class="texteColor widthTitle" href="/season/search">Saison</a></li>
+        <li><a class="texteColor widthTitle" href="/recipe/create">Formulaire</a></li>
       </ul>
     </div>
   </nav>
@@ -31,6 +31,14 @@ export default {
 
 </script>
 <style scoped>
+.widthTitle {
+  font-size: 1.5rem;
+}
+
+.material-icons {
+  color: #131E28;
+}
+
 .heightLogo {
   height: 100%;
 }
