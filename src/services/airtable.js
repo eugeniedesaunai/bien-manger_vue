@@ -27,23 +27,28 @@ class AirtableAPI {
     return fetch(url, options)
       .then(data => data.json())
   }
-  /*
-  get({ resource, id, query }) {
-  }
+
+  /* get({ resource, id, query }) {
+  } */
+
   update({ resource, id, data, query }) {
+    let url = this.baseURL + resource + id + query
     let options = {
       ...this.options,
-      mode: 'PUT'
+      mode: 'PUT',
+      body: JSON.stringify(data),
     }
+    return fetch(url, options)
+      .then(data => data.json())
   }
- 
-  destroy({ resource, id }) {
+
+  /* destroy({ resource, id }) {
     let options = {
       ...this.options,
       mode: 'DELETE'
     }
-  }
-  */
+  } */
+
 }
 
 export default new AirtableAPI({

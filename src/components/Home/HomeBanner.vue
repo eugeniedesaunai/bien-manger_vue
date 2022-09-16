@@ -62,6 +62,10 @@ export default {
     .buttonSaison {
         top: 70%;
     }
+
+    .imgBanner {
+        height: 85vh;
+    }
 }
 
 @media(min-width: 1280px) {

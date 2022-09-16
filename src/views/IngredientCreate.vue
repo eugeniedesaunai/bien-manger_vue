@@ -7,17 +7,19 @@
     <a @click="addFormNewIngredient" class="btn-floating btn-large waves-effect waves-light bgDarkGreenColor marginButton"><i class="material-icons">add</i></a>
     <input class="buttonForm greenColor textUppercase marginButton" @click="addIngredient"  type="submit" value="envoyer" href="">
 </section>
+<HomeFooter></HomeFooter>
 </template>
 <script>
 
 import IngredientSelect from '@/components/forms/IngredientSelect.vue'
 import NavBar from '@/components/NavBar.vue';
+import HomeFooter from '@/components/Home/Footer.vue';
 export default {
     name: 'IngredientCreate',
     components: {
         IngredientSelect,
         NavBar,
-
+        HomeFooter
     },
     data() {
         return {

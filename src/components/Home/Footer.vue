@@ -12,13 +12,17 @@ export default {
 }
 </script>
 <style scoped>
+.bgGreyColor {
+    background-color: rgba(217, 211, 204, 0.5);
+}
+
 .taille {
     font-size: 0.6rem;
 }
 
 div {
     width: 100vw;
-    height: 30vh;
+    height: 40vh;
 }
 
 @media(min-width: 768px) {

@@ -3,10 +3,10 @@
         <h2 class="titleFont textCenter widthTitle">Chercher une recette :</h2>
 
         <input  type="search" name="nom_recette" id=""> 
-        <label class="blueColor" for="Nom de la Recette"> Nom de la Recette: </label>
+        <label class="blueColor" for="Nom de la Recette"> Nom de la Recette </label>
        
         <input  type="search" name="nom_ingredient" id=""> 
-        <label class="blueColor" for="Nom de la Recette">Ingredient: </label>
+        <label class="blueColor" for="Nom de la Recette">Ingredient </label>
 
         <SelectForm @selectOption="get_season" content="Saison : " fname="season" func="checkSeason"></SelectForm>
         <div  class="input-field col s12" >

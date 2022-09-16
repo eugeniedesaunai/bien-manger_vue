@@ -7,18 +7,18 @@
     <a class="btn-floating btn-large waves-effect waves-light bgDarkGreenColor marginButton"  @click="addNewFormStep"  ><i class="material-icons">add</i></a>
     <input class="buttonForm greenColor textUppercase marginButton" type="submit" value="envoyer" @click="addSteps">
 </section>
-    
-   
+<HomeFooter></HomeFooter>
 </template>
 <script>
 import NavBar from '@/components/NavBar.vue';
 import StepsForm from '@/components/forms/StepsForm.vue';
+import HomeFooter from '@/components/Home/Footer.vue';
 export default {
     name: 'StepsCreate',
     components: {
         NavBar,
-        StepsForm
-
+        StepsForm,
+        HomeFooter
     },
     data() {
         return {

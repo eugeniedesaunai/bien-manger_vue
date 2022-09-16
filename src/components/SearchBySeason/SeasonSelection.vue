@@ -11,11 +11,19 @@
         <img @click="SeasonSelect('Hiver',$event.target.id)" id='season2' src="@/assets/SearchBySeason/hiver.jpg"
             class='col s3 offset-s2 selectSeason responsive-img'>
     </div> -->
-    <article class="flex">
-        <div class="printemps width"></div>
-        <div class="ete width"></div>
-        <div class="automne width"></div>
-        <div class="hiver width"></div>
+    <article class="flex column heigtImg">
+        <div class="printemps width flex alignCenter justifyCenter">
+            <p class="widthTitle"> Printemps</p>
+        </div>
+        <div class="ete width flex alignCenter justifyCenter">
+            <p class="widthTitle"> Été</p>
+        </div>
+        <div class="automne width flex alignCenter justifyCenter">
+            <p class="widthTitle">Automne</p>
+        </div>
+        <div class="hiver width flex alignCenter justifyCenter">
+            <p class="widthTitle">Hiver</p>
+        </div>
     </article>
 </template>
 
@@ -50,12 +58,15 @@ export default {
 </script>
 
 <style scoped>
-.selectSeason {
-    height: 35vh;
+.widthTitle {
+    font-size: 1.5rem;
+    background-color: rgba(217, 211, 204, 0.5);
+    padding: 1rem;
+    border-radius: 1rem;
 }
 
-.flex {
-    height: 90vh;
+.selectSeason {
+    height: 35vh;
 }
 
 .row {
@@ -64,12 +75,6 @@ export default {
 
 .selected {
     filter: brightness(50%);
-}
-
-.width {
-    width: 25vw;
-    background-size: cover;
-    background-position: center;
 }
 
 .printemps {
@@ -87,5 +92,26 @@ export default {
 
 .hiver {
     background-image: url(@/assets/SearchBySeason/hiver.jpg);
+}
+
+
+.width {
+    height: 25vh;
+    width: 100vw;
+    background-size: cover;
+    background-position: center;
+}
+
+@media(min-width: 768px) {
+    .width {
+        height: 91vh;
+        width: 25vw;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .column {
+        flex-direction: row;
+    }
 }
 </style>

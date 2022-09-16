@@ -52,5 +52,4 @@ vue3-carousel
 Faire la barre de recherche sur la HomePage  
 Bouton envoyer du formulaire, renvoie sur la page de la recette qui vient d'être créer  
 Bouton précédent sur formulaire  
-Problème avec le boutton suivant de la 1ère page du formulaire  
 Revoir pour les id Recette des étapes et des ingrédients  

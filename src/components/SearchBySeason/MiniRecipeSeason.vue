@@ -5,12 +5,12 @@
 </template>
 <script>
 export default {
-    name: "MiniRecipe",
+    name: "MiniRecipeSeason",
     props: ['recipe'],
     computed: {
         cssProps() {
             return {
-                '--img-recipe': "url(" + this.recipe.img[0].url + ")",
+                '--img-recipe': "url(" + this.recipe.img[0]?.url + ")",
             }
         }
     }
