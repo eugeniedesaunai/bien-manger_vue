@@ -88,6 +88,10 @@ h1 {
     background-image: var(--img-recipe);
 }
 
+.bgDarkGreenColor {
+    background-color: rgba(169, 191, 153, 0.5);
+}
+
 @media(min-width: 1024px) {
     .imgRecipe {
         width: 40vw;
