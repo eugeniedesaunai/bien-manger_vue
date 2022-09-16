@@ -13,7 +13,7 @@
          </ul>
            <ul>
             <li v-for="ingredient in getRecipes?.ingredients" :key="ingredient">
-            {{getIngredient(ingredient?.id)}}
+            {{getIngredient(ingredient?.Ingredient[0])?.name}}: {{ingredient?.Quantity}} {{ingredient?.Unit}}
             </li>
            </ul>
          </div>
@@ -56,10 +56,13 @@ export default {
         getSeason(){
             return this.$store.getters['season/getSeasonsPerId'](this.getRecipes?.Saison[0]);
         },
-        getIngredient: () => (ingredientId) => {
-            //console.log(this.$store.getters['ingredient/getIngredientsPerId'](ingredientId));
-            return ingredientId
+        getIngredient() {
+            let that = this
+            return (ingredientId) => {    
+                return that.$store.getters['ingredient/getIngredientsPerId'](ingredientId)
+            } 
         }
+        
     },
     created() {
         this.$store.dispatch('recipe/checkRecipe');
