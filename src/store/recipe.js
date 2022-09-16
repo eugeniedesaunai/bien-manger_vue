@@ -61,7 +61,6 @@ export default {
             for (let r of recipes) {
                 r.meal = meal.filter(i => i?.Recette?.includes(r.id))
             }
-            console.log(recipes)
             state.recipes = recipes;
         },
         setRecipesApi(state, data) {
