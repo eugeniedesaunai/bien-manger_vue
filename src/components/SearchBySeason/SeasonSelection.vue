@@ -12,10 +12,10 @@
             class='col s3 offset-s2 selectSeason responsive-img'>
     </div> -->
     <article class="flex">
-        <div class="printemps width"></div>
-        <div class="ete width"></div>
-        <div class="automne width"></div>
-        <div class="hiver width"></div>
+        <div class="printemps width" @click="SeasonSelect('Printemps',$event.target.id)" id='season3'></div>
+        <div class="ete width" @click="SeasonSelect('Eté',$event.target.id)" id='season0'></div>
+        <div class="automne width" @click="SeasonSelect('Automne',$event.target.id)" id='season1'></div>
+        <div class="hiver width" @click="SeasonSelect('Hiver',$event.target.id)" id='season2'></div>
     </article>
 </template>
 

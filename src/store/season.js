@@ -25,6 +25,12 @@ export default {
                 }
             }
             return res;
+        },
+        /**
+         * Récupération de le nom d'une saison par son id
+         */
+        getSeasonsPerId: (state) => (params) => {
+            return state.seasons.find(season => season.id == params);
         }
     },
     mutations: {

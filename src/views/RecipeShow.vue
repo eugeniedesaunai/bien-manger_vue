@@ -8,23 +8,20 @@
          <h1>{{ getRecipes?.Name }} </h1>
          <div class="flex spaceAround">
              <ul>
-            <li>Saison</li>
-            <li>Type de plat </li>
+            <li>{{getSeason?.name}}</li>
+            <li v-for="meal in getRecipes?.meal" :key='meal'>{{meal?.Name}}</li>
          </ul>
            <ul>
-            <li>ingredient</li>
-            <li>ingredient</li>
-            <li>ingredient</li>
-            <li>ingredient</li>
-            <li>ingredient</li>
-            <li>ingredient</li>
+            <li v-for="ingredient in getRecipes?.ingredients" :key="ingredient">
+            {{getIngredient(ingredient?.id)}}
+            </li>
            </ul>
          </div>
         <p>{{getRecipes?.Description}}</p>
-           <ul v-for="steps in getRecipes?.steps" :key='steps'>
+           <ul v-for="step in getRecipes?.steps" :key='step'>
             <li>
-                {{steps?.NoEtape}}.{{steps?.Name}}:<br>
-                {{steps?.Description}}
+                {{step?.NoEtape}}.{{step?.Name}}:<br>
+                {{step?.Description}}
             </li>
             </ul>
     </article>
@@ -40,7 +37,6 @@ export default {
         return {
             result: '',
             id: this.$route.params.id,
-            
 
         }
     },
@@ -55,11 +51,19 @@ export default {
             let r = this.$store.getters['recipe/getRecipePerId'](this.id);
             let css = '';
             if (r && r.images && r.images.length > 0) { css= "background-image: url('" + r?.images[0]?.url + "')" }
-            return css
+            return css;
+        },
+        getSeason(){
+            return this.$store.getters['season/getSeasonsPerId'](this.getRecipes?.Saison[0]);
+        },
+        getIngredient: () => (ingredientId) => {
+            //console.log(this.$store.getters['ingredient/getIngredientsPerId'](ingredientId));
+            return ingredientId
         }
     },
     created() {
         this.$store.dispatch('recipe/checkRecipe');
+        this.$store.dispatch('season/checkSeason');
         this.$store.dispatch('ingredient/checkIngredient');
     },
 }

@@ -11,6 +11,11 @@ export default {
             return state.ingredients;
         },
 
+        //get ingredient per Id
+        getIngredientsPerId: (state) => (params) => {
+            return state.ingredients.find(ingredient => ingredient.id == params);
+        }
+
     },
     mutations: {
         // permet de trier l'objet retourner par la BDD 
