@@ -23,7 +23,7 @@ export default {
     name: 'RecipeCreate',
     data() {
         return {
-            newRecipe: { name: '', description: '', image: [], steps: [], ingredients: [], season: '' },
+            newRecipe: { name: '', description: '', image: [], season: '', meal: '' },
             fields: ['recipe', 'description', 'season', 'image', 'meal'],
             test: {},
             Valid: [],
@@ -48,7 +48,6 @@ export default {
         },
         //Action
         Next() {
-            console.log(this.season);
             this.Valid = [];
             this.check_values();
             if (this.Valid.length == this.fields.length) {
@@ -56,10 +55,9 @@ export default {
                 this.newRecipe.description = this.description;
                 this.newRecipe.season = this.season;
                 this.newRecipe.meal = this.meal;
-                //this.newRecipe.image = this.image;
-
+                this.$store.dispatch("recipe/addRecipes", this.newRecipe);
                 localStorage.setItem('recipe', JSON.stringify(this.newRecipe));
-                //this.redirect();
+                this.redirect();
             }
         },
         //Recupération de la saison

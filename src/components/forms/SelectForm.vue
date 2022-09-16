@@ -19,7 +19,6 @@ export default {
     methods: {
         // Récuparation de la selection
         SelectOption(event) {
-            console.log(event.target.value);
             this.$emit('selectOption', event.target.value)
         }
     },

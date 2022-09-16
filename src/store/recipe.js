@@ -18,6 +18,9 @@ export default {
 
         getRecipePerId: (state) => (recipeId) => {
             return state.recipes.find(recipe => recipe.id == recipeId);
+        },
+        getRecipePerName: (state) => (recipeName) => {
+            return state.recipes.find(recipe => recipe.Name === recipeName);
         }
     },
     mutations: {
@@ -51,7 +54,6 @@ export default {
                 r.steps = steps.filter(i => i?.Recette?.includes(r.id))
             }
             state.recipes = recipes;
-            console.log(state.recipes);
         },
         setRecipesApi(state, data) {
             state.recipesApi = data;
@@ -66,8 +68,8 @@ export default {
             }
         },
         // permet d'ajouter des étapes
-        async addSteps(context, { name, stepNumber, description }) {
-            let recette_id = "recM9wxxQYN17fDlY"
+        async addSteps(context, { recette, name, stepNumber, description }) {
+            let recette_id = recette
             let objet = {
                 records: [
                     {
@@ -77,10 +79,10 @@ export default {
             }
             await api.create({ resource: 'Etape', data: objet })
         },
-        async addRecipes(context, { name, description, season }) {
+        async addRecipes(context, { name, description, season, meal }) {
             let object = {
                 records: [
-                    { fields: { Name: name, Description: description, Saison: [season] } }
+                    { fields: { Name: name, Description: description, Saison: [season], Plat: [meal] } }
                 ]
             }
             await api.create({ resource: 'Recette', data: object })

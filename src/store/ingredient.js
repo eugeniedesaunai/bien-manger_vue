@@ -51,8 +51,8 @@ export default {
         },
 
         // permet d'ajouter une quantité 
-        async addNewQuantity(context, { ingredient, quantity, unit }) {
-            let recette_id = "recM9wxxQYN17fDlY"
+        async addNewQuantity(context, { recette, ingredient, quantity, unit }) {
+            let recette_id = recette
             let objet = {
                 records: [
                     { fields: { Recette: [recette_id], Ingredient: [ingredient], Quantity: Number(quantity), Unit: unit } }]
