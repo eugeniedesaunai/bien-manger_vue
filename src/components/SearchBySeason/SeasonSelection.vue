@@ -1,27 +1,19 @@
 <template>
-    <!--     <div class='row'>
-        <img @click="SeasonSelect('Printemps',$event.target.id)" id='season3'
-            src="@/assets/SearchBySeason/printemps.jpg" class='col s3 offset-s2 selectSeason responsive-img'>
-        <img @click="SeasonSelect('Eté',$event.target.id)" id='season0' src="@/assets/SearchBySeason/ete.jpg"
-            class='col s3 offset-s2 selectSeason responsive-img'>
-    </div>
-    <div class='row'>
-        <img @click="SeasonSelect('Automne',$event.target.id)" id='season1' src="@/assets/SearchBySeason/automne.jpg"
-            class='col s3 offset-s2 selectSeason responsive-img'>
-        <img @click="SeasonSelect('Hiver',$event.target.id)" id='season2' src="@/assets/SearchBySeason/hiver.jpg"
-            class='col s3 offset-s2 selectSeason responsive-img'>
-    </div> -->
     <article class="flex column heigtImg">
-        <div class="printemps width flex alignCenter justifyCenter">
+        <div @click="SeasonSelect('Printemps',$event.target.id)" id='season3'
+            class="printemps width flex alignCenter justifyCenter">
             <p class="widthTitle"> Printemps</p>
         </div>
-        <div class="ete width flex alignCenter justifyCenter">
+        <div @click="SeasonSelect('Eté',$event.target.id)" id='season0'
+            class="ete width flex alignCenter justifyCenter">
             <p class="widthTitle"> Été</p>
         </div>
-        <div class="automne width flex alignCenter justifyCenter">
+        <div @click="SeasonSelect('Automne',$event.target.id)" id='season1'
+            class="automne width flex alignCenter justifyCenter">
             <p class="widthTitle">Automne</p>
         </div>
-        <div class="hiver width flex alignCenter justifyCenter">
+        <div @click="SeasonSelect('Hiver',$event.target.id)" id='season2'
+            class="hiver width flex alignCenter justifyCenter">
             <p class="widthTitle">Hiver</p>
         </div>
     </article>

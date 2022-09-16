@@ -82,7 +82,14 @@ export default {
     box-sizing: content-box;
     border: 5px solid white;
     transform: translate(0);
+    background-color: rgba(169, 191, 153, 0.5);
 }
+
+.carousel__prev:focus,
+.carousel__next:focus {
+    background-color: rgba(169, 191, 153, 0.9);
+}
+
 
 .carousel__prev--in-active,
 .carousel__next--in-active {

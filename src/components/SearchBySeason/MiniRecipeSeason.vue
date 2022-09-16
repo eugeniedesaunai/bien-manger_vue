@@ -1,6 +1,6 @@
 <template lang="">
     <div class="imgMonth" :style='cssProps'>
-         <a :href="'/recipe/' + recipe.id">{{recipe.name}}</a>
+         <a class="blueColor" :href="'/recipe/' + recipe.id">{{recipe.name}}</a>
      </div>
 </template>
 <script>
@@ -24,6 +24,7 @@ export default {
     background-size: cover;
     background-position: center;
     position: relative;
+    margin-top: 3rem;
     margin-bottom: 6rem;
 }
 
