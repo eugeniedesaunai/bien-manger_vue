@@ -38,7 +38,7 @@ export default {
     },
     actions: {
         async checkIngredient(context) {
-            let result = await api.find({ resource: 'Ingredient', query: 'maxRecords=10' })
+            let result = await api.find({ resource: 'Ingredient', query: 'maxRecords=100' })
             this.state.ingredients = result;
             if (this.state.ingredients !== this.state.currentIngredients) {
                 context.commit('fillIngredients');

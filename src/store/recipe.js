@@ -70,7 +70,7 @@ export default {
     },
     actions: {
         async checkRecipe({ commit, state }) {
-            let result = await api.find({ resource: 'Recette', query: 'maxRecords=30' });
+            let result = await api.find({ resource: 'Recette', query: 'maxRecords=50' });
             commit('setRecipesApi', result);
             if (state.recipe != state.recipesApi) {
                 commit('fillRecipe');
