@@ -1,9 +1,9 @@
 <template lang="">
     <div class="imgBanner "> </div>
     <p class="textBanner absolute blueColor textCenter textFont">
-        Be a nyan cat, feel great about it, be annoying 24/7 poop rainbows in litter box all day love blinks 
-        and purr purr purr purr yawn proudly present butt to human. Bird bird bird bird bird bird human why 
-        take bird out i could have eaten that snuggles up to shoulders?
+        A chaque saison, ses recettes. C’est un fait, l'été, n'offre pas les mêmes possibilités qu’en plein 
+        cœur de l’hiver. 
+        Découvrez dès à présent nos meilleures recettes de saison.
     </p>
 <input @click='Redirect' type="button" class="buttonSaison absolute greenColor textUppercase" value="Cherchez une recette par saison">
 </template>

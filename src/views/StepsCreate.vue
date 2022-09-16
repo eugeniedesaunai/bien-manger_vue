@@ -26,6 +26,7 @@ export default {
             ingredientRecette: JSON.parse(localStorage.getItem('ingredients')),
             newStep: [{ name: undefined, stepNumber: 0, description: undefined }],
             stepsRecipes: { name: undefined, stepNumber: 0, description: undefined }
+
         }
     },
     methods: {
@@ -37,9 +38,12 @@ export default {
             this.newRecipe.steps = this.stepsRecipes;
             console.log(this.newRecipe);
             this.$store.dispatch("recipe/addRecipes", this.newRecipe);
+            this.$store.dispatch("recipe/addSteps", this.stepsRecipes);
+
             for (let i = 0; i < this.newStep.length; i++) {
                 this.$store.dispatch("recipe/addSteps", this.newStep[i])
             }
+
 
         },
     }

@@ -1,7 +1,7 @@
 <template>
     <NavBar :isHomePage="false"></NavBar>
-    <div class="container">
-        <form class="flex column widthForm alignCenter spaceAround" action="" onsubmit="return false;">
+    <div class="container textCenter">
+        <form class="flex column widthForm spaceAround form" action="" onsubmit="return false;">
             <InputTextForm @selectInput="get_input" content="Nom de la recette : " fname="recipe" />
             <TextAreaForm @selectTextarea="getTextarea" content="Description de la recette :" fname="description" />
             <SelectForm @selectOption="get_season" content="Saison : " fname="season" func="checkSeason"></SelectForm>

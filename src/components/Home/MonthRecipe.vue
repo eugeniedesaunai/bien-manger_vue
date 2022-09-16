@@ -1,4 +1,5 @@
-<template lang=""><h1>Recettes du mois</h1>
+<template lang="">
+<h2 class="titleFont widthTitle">Recettes du mois</h2>
     <article class="recipesMounth">
        <MiniRecipe v-for="i in 3" :key="i"></MiniRecipe>
     </article>
@@ -17,8 +18,7 @@ export default {
     justify-content: space-around;
 }
 
-h1 {
-    font-size: 2rem;
+h2 {
     align-self: center;
     margin: 0;
     margin-top: 5rem;

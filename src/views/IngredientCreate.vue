@@ -21,6 +21,7 @@ export default {
     },
     data() {
         return {
+
             newRecipe: JSON.parse(localStorage.getItem('recipe')),
             ingredientRecette: { ingredient: undefined, quantity: 0, unit: undefined },
             newIngredients: [{ ingredient: undefined, quantity: 0, unit: undefined }],
@@ -38,6 +39,8 @@ export default {
             console.log(this.ingredientRecette);
             localStorage.setItem('recipe', JSON.stringify(this.newRecipe));
             localStorage.setItem('ingredients', JSON.stringify(this.ingredientRecette));
+            this.$store.dispatch("ingredient/addNewQuantity", this.ingredientRecette)
+            this.newIngredients.push({ ...this.ingredientRecette })
             for (let i = 0; i < this.newIngredients.length; i++) {
                 this.$store.dispatch("ingredient/addNewQuantity", this.newIngredients[i])
             }

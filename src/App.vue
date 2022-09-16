@@ -1,8 +1,8 @@
 <template>
   <div class='backgroundStatics'></div>
+
   <router-view />
 </template>
-
 <style>
 :root {
   --body-bg: #D9D3CC;
@@ -30,7 +30,6 @@ body {
 }
 
 .buttonHome {
-  margin: 0;
   border-radius: 1rem;
   width: 60vw;
   height: 8vh;
@@ -40,7 +39,6 @@ body {
 
 
 .buttonForm {
-  margin: 0;
   border-radius: 1rem;
   width: 30vw;
   height: 5vh;

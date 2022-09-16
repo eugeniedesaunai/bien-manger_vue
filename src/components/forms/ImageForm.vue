@@ -1,6 +1,6 @@
 <template>
     <div class="file-field input-field col s12">
-        <div class="btn">
+        <div class="btn bgDarkGreenColor">
             <span>{{content}}</span>
             <input type="file" @change="selectInput" :name=fname :id=fname>
         </div>

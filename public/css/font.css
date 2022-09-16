@@ -3,7 +3,7 @@
 
 
 /* pour liste ingredient et étape lors de la création */
-.listCreateFont {
+.titleFont {
     font-family: 'Space Mono', monospace;
 }
 
@@ -11,4 +11,8 @@
 /* pour le texte  */
 .textFont {
     font-family: 'Poppins', sans-serif;
+}
+
+.widthTitle {
+    font-size: 2rem;
 }

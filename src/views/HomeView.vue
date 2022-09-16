@@ -8,12 +8,14 @@
   <NavBar :isHomePage="true"></NavBar>
   <HomeBanner></HomeBanner>
   <SectionMonthRecipeSearchForm></SectionMonthRecipeSearchForm>
+  <HomeFooter></HomeFooter>
 </template>
 
 <script>
 // @ is an alias to /src
 import NavBar from '@/components/NavBar.vue';
 import HomeBanner from '@/components/Home/HomeBanner.vue';
+import HomeFooter from '@/components/Home/Footer.vue';
 import SectionMonthRecipeSearchForm from '@/components/Home/SectionMonthRecipeSearchForm.vue';
 
 export default {
@@ -21,19 +23,20 @@ export default {
   components: {
     NavBar,
     HomeBanner,
-    SectionMonthRecipeSearchForm
+    SectionMonthRecipeSearchForm,
+    HomeFooter
   },
-  methods: { 
+  methods: {
     scrollToTopButton() {
       window.scrollTo({
         top: 0,
         left: 0,
         behavior: "smooth"
       })
-    }  
+    }
   },
-  created () {
-    window.onscroll = function() {
+  created() {
+    window.onscroll = function () {
       if (scrollY >= 200) {
         document.getElementById('backToTop').style.visibility = "visible";
       } else {
@@ -43,7 +46,7 @@ export default {
 
   },
 
-  
+
 }
 </script >
 
